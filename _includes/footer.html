@@ -1,0 +1,15 @@
+<hr>
+<footer>
+  C{{  site.author }}, ver.: {{ site.version }} <br>
+
+  {% for p in site.data.powered %}
+    <a href="{{ p.url }}">{{ p.name }}</a>
+  {% endfor %}
+
+  <br>
+  <ul>
+    {% for p in site.data.social %}
+      <li><a href="{{ p.url }}">{{ p.name }}</a></li>
+    {% endfor %}
+  </ul>
+</footer>

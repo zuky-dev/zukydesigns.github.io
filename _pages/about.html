@@ -1,0 +1,21 @@
+---
+layout: temp
+title: about
+permalink:  /about
+---
+
+{% for person in site.data.people %}
+  <h1>{{ person.name }}</h1>
+  {{ person.active_since }}, {{ person.photo }}, {{ person.curriculum }} <br>
+  {{ person.about }}
+  <br><br>
+
+  {% for skill in person.skills %}
+    <h4>{{ skill.skillname}}</h4>
+
+    {% for type in skill.types %}
+      {{ type.name }}<br>
+    {% endfor %}
+  <br>
+  {% endfor %}
+{% endfor %}

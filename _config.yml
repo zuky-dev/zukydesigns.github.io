@@ -29,6 +29,18 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-paginate-v2
+
+# etc variables
+author: "ZukyDesigns"
+version: "0.1.0a"
+
+include:
+  - _pages
+
+pagination:
+  enabled: true
+  per_page: 5
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

@@ -1,0 +1,15 @@
+- name: "E-Mail"
+  url: ""
+  icon: ""
+
+- name: "Twitter"
+  url: ""
+  icon: ""
+
+- name: "LinkedIn"
+  url: ""
+  icon: ""
+
+- name: "Github"
+  url: ""
+  icon: ""

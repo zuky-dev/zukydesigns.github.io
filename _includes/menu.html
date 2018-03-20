@@ -1,0 +1,7 @@
+<a href="/">home</a>
+
+<ul>
+  {% for p in site.data.navigation %}
+    <li><a href="{{ p.url }}">{{ p.name }}</a></li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,11 @@
+---
+layout: temp
+permalink: /pricing
+---
+
+{% for tag in site.data.pricing %}
+  <h3>{{ tag.name }}</h3>
+  {{ tag.img }}, {{ tag.price }} <br>
+  {{ tag.info }}
+  <br><br>
+{% endfor %}

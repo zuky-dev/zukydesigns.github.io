@@ -1,0 +1,20 @@
+---
+layout: temp
+permalink: /portfolio
+---
+
+{% for category in site.data.portfolio %}
+  <h3>{{ category.type }}</h3>
+
+  {% for entry in category.entries %}
+    {{ entry.name }}
+
+    {% if entry.download %}
+      , {{ entry.url | upcase}}
+    {% endif %}
+
+    <br>
+  {% endfor %}
+
+  <br>
+{% endfor %}

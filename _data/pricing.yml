@@ -1,0 +1,9 @@
+- name: "Logo"
+  img: "imgurl"
+  price: "15E"
+  info: "bla bla"
+
+- name: "Website"
+  img: "imgurl"
+  price: "150E"
+  info: "bla bla bala"

@@ -1,0 +1,31 @@
+- type: "Graphic"
+  entries:
+    - name: "Death & Strawberry"
+      url: "imgurl"
+      download: false
+
+    - name: "Darkness encapsulated"
+      url: "imgurl"
+      download: true
+
+
+- type: "Logos"
+  entries:
+    - name: "Zuky"
+      url: "imgurl"
+      download: false
+
+    - name: "DEABa"
+      url: "imgurl"
+      download: false
+
+
+- type: "Websites"
+  entries:
+    - name: "ZukyDesigns"
+      url: "imgurl"
+      download: false
+
+    - name: "Z&Z Car Crew"
+      url: "imgurl"
+      download: false

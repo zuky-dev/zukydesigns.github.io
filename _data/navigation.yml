@@ -1,0 +1,11 @@
+- name: "Portfolio"
+  url: "/portfolio"
+
+- name: "News"
+  url: "/news"
+
+- name: "Pricing"
+  url: "/pricing"
+
+- name: "About"
+  url: "/about"
