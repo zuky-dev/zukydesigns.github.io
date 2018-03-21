@@ -1,15 +1,25 @@
 <hr>
-<footer>
-  C{{  site.author }}, ver.: {{ site.version }} <br>
-
-  {% for p in site.data.powered %}
-    <a href="{{ p.url }}">{{ p.name }}</a>
-  {% endfor %}
-
-  <br>
-  <ul>
-    {% for p in site.data.social %}
-      <li><a href="{{ p.url }}">{{ p.name }}</a></li>
-    {% endfor %}
-  </ul>
+<footer class="container py-1">
+  <div class="row">
+    <div class="col-12 col-md">
+      <h3>&copy; {{ site.author }}</h3>
+      <small class="d-block mb-3 text-muted">ver.: {{ site.version }}</small>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Powered by</h5>
+      <ul class="list-unstyled text-small">
+        {% for p in site.data.powered %}
+        <li><a class="text-muted" href="{{ p.url }}">{{ p.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Social</h5>
+      <ul class="list-unstyled text-small">
+        {% for p in site.data.social %}
+        <li><a class="text-muted" href="{{ p.url }}">{{ p.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
 </footer>

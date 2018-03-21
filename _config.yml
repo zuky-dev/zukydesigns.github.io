@@ -33,7 +33,7 @@ plugins:
 
 # etc variables
 author: "ZukyDesigns"
-version: "0.1.0a"
+version: "0.2.5a"
 
 include:
   - _pages
