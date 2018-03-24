@@ -1,8 +1,17 @@
-<ul class="nav nav-tabs bg-dark">
-  </li>
-  {% for p in site.data.navigation %}
+<ul class="nav nav-tabs navbar-expand-md bg-dark"> <!--fixed-top"-->
   <li class="nav-item">
-    <a class="nav-link {% if page.url == p.url or p.name == page.title %}active{% endif %}" href="{{ p.url }}">{{ p.name }}</a>
+    <a class="px-3 nav-link" href="/"><img src="/images/ZD.svg" width="70" height="20" alt="Zuky Designs logo"></a>
   </li>
-  {% endfor %}
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </button>
+
+  <div  class="collapse navbar-collapse" id="navbar">
+    {% for p in site.data.navigation %}
+    <li class="nav-item">
+      <a class="nav-link {% if page.url == p.url or p.name == page.title %}active{% endif %}" href="{{ p.url }}">{{ p.name }}</a>
+    </li>
+    {% endfor %}
+  </div>
 </ul>

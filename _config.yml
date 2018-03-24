@@ -33,7 +33,7 @@ plugins:
 
 # etc variables
 author: "ZukyDesigns"
-version: "0.2.5a"
+version: "0.3.2a"
 
 include:
   - _pages
@@ -41,6 +41,16 @@ include:
 pagination:
   enabled: true
   per_page: 5
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "post"
+    values:
+      layout: "posts"
+      permalink: "/news/:title/"
+
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
