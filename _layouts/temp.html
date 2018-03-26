@@ -2,13 +2,15 @@
 <html> <!-- lang="{{ lang }}" -->
   {% include head.html %}
 <body>
-  {% include menu.html %}
-  {% include hero.html %}
+  <!--<div class="container">-->
+    {% include hero.html %}
+    {% include menu.html %}
+      {{ content }}
+
+    {% include footer.html %}
 
   <!-- parallaxing frontground -->
-  {{ content }}
 
-  {% include footer.html %}
   {% include scripts.html %}
 </body>
 </html>

@@ -1,4 +1,5 @@
 - name: "Zuky"
+  id: "1"
   active_since: "date"
   photo: "photo url"
   curriculum: "pdf url"

@@ -5,17 +5,49 @@ permalink:  /about
 ---
 
 {% for person in site.data.people %}
-  <h1>{{ person.name }}</h1>
-  {{ person.active_since }}, {{ person.photo }}, {{ person.curriculum }} <br>
-  {{ person.about }}
-  <br><br>
+<h1>{{ person.name }}</h1>
+{{ person.active_since }}, {{ person.photo }}, {{ person.curriculum }} <br>
+{{ person.about }}
 
+<div class="container-fluid d-none d-md-block">
+  <div class="row">
+    <div class="nav flex-column nav-pills col-md-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      {% for skill in person.skills %}
+      <a class="nav-link {% if forloop.first == true %}active{% endif %}" id="v-pills-{{person.id}}{{skill.skillname}}-tab" data-toggle="pill" href="#v-pills-{{person.id}}{{skill.skillname}}" role="tab" aria-controls="v-pills-{{person.id}}{{skill.skillname}}" aria-selected="{% if forloop.first == true %}true{% else %}false{% endif %}">{{skill.skillname}}</a>
+      {% endfor %}
+    </div>
+    <div class="tab-content col-md-10" id="v-pills-tabContent">
+      {% for skill in person.skills %}
+      <div class="tab-pane fade {% if forloop.first == true %}show active{% endif %}" id="v-pills-{{person.id}}{{skill.skillname}}" role="tabpanel" aria-labelledby="v-pills-{{person.id}}{{skill.skillname}}-tab">
+        {% for type in skill.types %}
+          {{ type.name }}<br>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+<div id="accordion" class="d-md-none d-sm-block">
   {% for skill in person.skills %}
-    <h4>{{ skill.skillname}}</h4>
+  <div class="card">
+    <div class="card-header" id="heading{{person.id}}{{skill.skillname}}">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{person.id}}{{skill.skillname}}" aria-expanded="{% if forloop.first == true %}true{% else %}false{% endif %}" aria-controls="collapse{{person.id}}{{skill.skillname}}">
+          {{skill.skillname}}
+        </button>
+      </h5>
+    </div>
 
-    {% for type in skill.types %}
-      {{ type.name }}<br>
-    {% endfor %}
-  <br>
+    <div id="collapse{{person.id}}{{skill.skillname}}" class="collapse {% if forloop.first == true %}show{% endif %}" aria-labelledby="heading{{person.id}}{{skill.skillname}}" data-parent="#accordion">
+      <div class="card-body">
+        {% for type in skill.types %}
+          {{ type.name }}<br>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
   {% endfor %}
+</div>
 {% endfor %}

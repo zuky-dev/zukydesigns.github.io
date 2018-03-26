@@ -3,9 +3,42 @@ layout: temp
 permalink: /pricing
 ---
 
-{% for tag in site.data.pricing %}
-  <h3>{{ tag.name }}</h3>
-  {{ tag.img }}, {{ tag.price }} <br>
-  {{ tag.info }}
-  <br><br>
-{% endfor %}
+<div class="container-fluid d-none d-md-block">
+  <div class="row">
+    <div class="nav flex-column nav-pills col-md-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      {% for tag in site.data.pricing %}
+      <a class="nav-link {% if forloop.first == true %}active{% endif %}" id="v-pills-{{tag.name}}-tab" data-toggle="pill" href="#v-pills-{{tag.name}}" role="tab" aria-controls="v-pills-{{tag.name}}" aria-selected="{% if forloop.first == true %}true{% else %}false{% endif %}">{{tag.name}}</a>
+      {% endfor %}
+    </div>
+    <div class="tab-content col-md-10" id="v-pills-tabContent">
+      {% for tag in site.data.pricing %}
+      <div class="tab-pane fade {% if forloop.first == true %}show active{% endif %}" id="v-pills-{{tag.name}}" role="tabpanel" aria-labelledby="v-pills-{{tag.name}}-tab">
+        {{ tag.img }}, {{ tag.price }} <br>
+        {{ tag.info }}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+<div id="accordion" class="d-md-none d-sm-block">
+  {% for tag in site.data.pricing %}
+  <div class="card">
+    <div class="card-header" id="heading{{tag.name}}">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{tag.name}}" aria-expanded="{% if forloop.first == true %}true{% else %}false{% endif %}" aria-controls="collapse{{tag.name}}">
+          {{tag.name}}
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapse{{tag.name}}" class="collapse {% if forloop.first == true %}show{% endif %}" aria-labelledby="heading{{tag.name}}" data-parent="#accordion">
+      <div class="card-body">
+        {{ tag.img }}, {{ tag.price }} <br>
+        {{ tag.info }}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
