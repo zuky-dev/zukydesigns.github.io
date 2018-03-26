@@ -32,21 +32,21 @@ plugins:
   - jekyll-paginate-v2
 
 # etc variables
-author: "ZukyDesigns"
-version: "0.3.2a"
+author: "Lukáš Odler"
+version: "0.4.9a"
 
 include:
   - _pages
 
 pagination:
   enabled: true
-  per_page: 5
+  per_page: 6
 
 defaults:
   -
     scope:
       path: ""
-      type: "post"
+      type: "posts"
     values:
       layout: "posts"
       permalink: "/news/:title/"
