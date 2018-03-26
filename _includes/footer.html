@@ -1,11 +1,11 @@
 <hr>
 <footer class="container py-1">
   <div class="row">
-    <div class="col-6">
-      <h3>&copy; {{ site.author }} <img src="/images/ZD.svg" alt=""></h3>
+    <div class="col-md-6 col-sm-12">
+      <h3>&copy; <img src="/images/ZD.svg"  width="70" height="25" alt="Zuky Designs logo"> {{ site.author }}</h3>
       <small class="d-block mb-3 text-muted">ver.: {{ site.version }}</small>
     </div>
-    <div class="col-3">
+    <div class="col-md-3 col-sm-6">
       <h5>Powered by</h5>
       <ul class="list-unstyled text-small">
         {% for p in site.data.powered %}
@@ -13,7 +13,7 @@
         {% endfor %}
       </ul>
     </div>
-    <div class="col-3">
+    <div class="col-md-3 col-sm-6">
       <h5>Social</h5>
       <ul class="list-unstyled text-small">
         {% for p in site.data.social %}
