@@ -9,41 +9,61 @@ permalink:  /about
 {{ person.active_since }}, {{ person.photo }}, {{ person.curriculum }} <br>
 {{ person.about }}
 
-<div class="container-fluid d-none d-md-block">
-  <div class="row">
-    <div class="nav flex-column nav-pills col-md-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      {% for skill in person.skills %}
-      <a class="nav-link {% if forloop.first == true %}active{% endif %}" id="v-pills-{{person.id}}{{skill.skillname}}-tab" data-toggle="pill" href="#v-pills-{{person.id}}{{skill.skillname}}" role="tab" aria-controls="v-pills-{{person.id}}{{skill.skillname}}" aria-selected="{% if forloop.first == true %}true{% else %}false{% endif %}">{{skill.skillname}}</a>
-      {% endfor %}
-    </div>
-    <div class="tab-content col-md-10" id="v-pills-tabContent">
-      {% for skill in person.skills %}
-      <div class="tab-pane fade {% if forloop.first == true %}show active{% endif %}" id="v-pills-{{person.id}}{{skill.skillname}}" role="tabpanel" aria-labelledby="v-pills-{{person.id}}{{skill.skillname}}-tab">
-        {% for type in skill.types %}
-          {{ type.name }}<br>
-        {% endfor %}
+<div class="container-fluid row d-none d-md-flex py-5">
+  <nav class="col-md-2 nav nav-tabs text-center flex-column px-5" role="tablist">
+    {% for skill in person.skills %}
+    <a class="nav-link {% if forloop.first == true %}active{% endif %}" id="{{person.id | append: skill.skillname}}-tab" data-toggle="tab" href="#{{person.id | append: skill.skillname}}" role="tab" aria-controls="{{person.id | append: skill.skillname}}" aria-selected="{% if forloop.first == true %}true{% else %}false{% endif %}">{{skill.skillname}}</a>
+    {% endfor %}
+  </nav>
+
+  <div class="col-md-10 tab-content">
+    {% for skill in person.skills %}
+    <div class="tab-pane fade {% if forloop.first == true %}show active{% endif %} container" id="{{person.id | append: skill.skillname}}" role="tabpanel" aria-labelledby="{{person.id | append: skill.skillname}}-tab">
+      {% for type in skill.types %}
+      <div class="py-3">
+        <h3>{{type.name}}</h3>
+        <table class="table table-hover table-borderless text-center">
+          <tbody>
+            {% for type in type.types %}
+            <tr>
+              <td>{% if type.icon %}<i class="{{type.icon}}"></i>{% else %}{{type.name}}{% endif %}</td>
+              <td>{{type.skill}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
       {% endfor %}
     </div>
+    {% endfor %}
   </div>
 </div>
-
 
 <div id="accordion" class="d-md-none d-sm-block">
   {% for skill in person.skills %}
   <div class="card">
-    <div class="card-header" id="heading{{person.id}}{{skill.skillname}}">
+    <div class="card-header" id="heading{{person.id | append: skill.skillname}}">
       <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{person.id}}{{skill.skillname}}" aria-expanded="{% if forloop.first == true %}true{% else %}false{% endif %}" aria-controls="collapse{{person.id}}{{skill.skillname}}">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{person.id | append: skill.skillname}}" aria-expanded="{% if forloop.first == true %}true{% else %}false{% endif %}" aria-controls="collapse{{person.id | append: skill.skillname}}">
           {{skill.skillname}}
         </button>
       </h5>
     </div>
 
-    <div id="collapse{{person.id}}{{skill.skillname}}" class="collapse {% if forloop.first == true %}show{% endif %}" aria-labelledby="heading{{person.id}}{{skill.skillname}}" data-parent="#accordion">
+    <div id="collapse{{person.id | append: skill.skillname}}" class="collapse {% if forloop.first == true %}show{% endif %}" aria-labelledby="heading{{person.id | append: skill.skillname}}" data-parent="#accordion">
       <div class="card-body">
         {% for type in skill.types %}
-          {{ type.name }}<br>
+        <h3>{{type.name}}</h3>
+        <table class="table table-hover table-borderless text-center">
+          <tbody>
+            {% for type in type.types %}
+            <tr>
+              <td>{% if type.icon %}<i class="{{type.icon}}"></i>{% else %}{{ type.name | strip }}{% endif %}</td>
+              <td>{{type.skill}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
         {% endfor %}
       </div>
     </div>
