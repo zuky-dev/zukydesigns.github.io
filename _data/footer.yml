@@ -1,0 +1,23 @@
+- name: "Powered by"
+  types:
+    - name: "Jekyll"
+      url: ""
+      icon: ""
+    - name: "Github Pages"
+      url: ""
+      icon: "fa fa-github"
+
+- name: "Social"
+  types:
+    - name: "E-Mail"
+      url: ""
+      icon: "fa fa-envelope-o"
+    - name: "Twitter"
+      url: ""
+      icon: "fa fa-twitter"
+    - name: "LinkedIn"
+      url: ""
+      icon: "fa fa-linkedin"
+    - name: "Github"
+      url: ""
+      icon: "fa fa-github"

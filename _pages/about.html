@@ -5,14 +5,28 @@ permalink:  /about
 ---
 
 {% for person in site.data.people %}
-<h1>{{ person.name }}</h1>
-{{ person.active_since }}, {{ person.photo }}, {{ person.curriculum }} <br>
-{{ person.about }}
-
-<div class="container-fluid row d-none d-md-flex py-5">
+<div class="container-fluid py-3 px-5">
+  <h1>{{ person.name }}</h1>
+  <div class="row">
+    <div class="col-sm-12 col-md-8">{{ person.about }}</div>
+    <div class="col-sm-12 col-md-4 order-first order-md-last mb-3 mt-2">
+      <div class="row text-center img-thumbnail mx-auto">
+        <div class="col-md-12 order-first">
+          <img class="img-fluid py-md-2 pb-0 pt-2" src="{{person.photo}}" alt="{{person.name}} picture"></div>
+        <div class="col-md-6 order-2 text-muted my-md-2">Active since {{ person.active_since }}</div>
+        <div class="col-md-6 order-1 order-md-last">
+          <a href="{{ person.curriculum }}" class="badge badge-dark w-100 py-3 mb-2">Full CV</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<h2 class="px-5">Skills</h2>
+<div class="container-fluid row d-none d-md-flex py-3">
   <nav class="col-md-2 nav nav-tabs text-center flex-column px-5" role="tablist">
     {% for skill in person.skills %}
-    <a class="nav-link {% if forloop.first == true %}active{% endif %}" id="{{person.id | append: skill.skillname}}-tab" data-toggle="tab" href="#{{person.id | append: skill.skillname}}" role="tab" aria-controls="{{person.id | append: skill.skillname}}" aria-selected="{% if forloop.first == true %}true{% else %}false{% endif %}">{{skill.skillname}}</a>
+    <a class="nav-link {% if forloop.first == true %}active{% endif %} text-truncate px-0" id="{{person.id | append: skill.skillname}}-tab" data-toggle="tab" href="#{{person.id | append: skill.skillname}}" role="tab" aria-controls="{{person.id | append: skill.skillname}}" aria-selected="{% if forloop.first == true %}true{% else %}false{% endif %}">{{skill.skillname}}</a>
     {% endfor %}
   </nav>
 
@@ -26,7 +40,7 @@ permalink:  /about
           <tbody>
             {% for type in type.types %}
             <tr>
-              <td>{% if type.icon %}<i class="{{type.icon}}"></i>{% else %}{{type.name}}{% endif %}</td>
+              <td>{% if type.icon %}<i class="{{type.icon}}"></i>{% else %}<i>{{type.name}}</i>{% endif %}</td>
               <td>{{type.skill}}</td>
             </tr>
             {% endfor %}

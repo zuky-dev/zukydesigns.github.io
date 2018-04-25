@@ -1,7 +1,7 @@
-- name: "Zuky"
+- name: "Lukáš Odler"
   id: "1"
-  active_since: "date"
-  photo: "photo url"
+  active_since: "march 2015"
+  photo: "/images/carousel/1.jpg"
   curriculum: "pdf url"
   skills:
     - skillname: "Programming"
@@ -102,4 +102,5 @@
               skill: "Intermediate"
             - name: "Adobe Premiere"
               skill: "Intermediate"
-  about: "About text"
+  about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet ornare sapien. Nulla dui ipsum, vestibulum id orci et, vestibulum posuere dolor. Curabitur pharetra nibh vestibulum, fermentum est ac, porta turpis. Integer fringilla felis vel pulvinar laoreet. Etiam elementum, eros at auctor egestas, eros tortor elementum ligula, et dapibus odio nibh at nisl. Donec in elit eget massa ullamcorper suscipit eget id sapien. Vivamus euismod convallis libero non congue.
+          Suspendisse nec suscipit odio, sed pulvinar sapien. Nullam nunc risus, aliquet in lectus et, scelerisque facilisis nulla. Nam fringilla molestie justo, vitae gravida tellus scelerisque congue. Etiam a ante aliquet, lobortis odio at, ullamcorper sem. Proin euismod massa quis dolor vehicula, sodales vehicula eros commodo. Vestibulum ex augue, dignissim a nisl at, ultrices tincidunt lorem. Phasellus ut nulla in enim laoreet suscipit."
