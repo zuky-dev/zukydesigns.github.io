@@ -1,0 +1,16 @@
+<div class="contact gc12 grid">
+  <form class="gc8" action="">
+    <textarea name="name" rows="2" cols="20"></textarea>
+    <button type="button" name="button">Send mail</button>
+  </form>
+  <div class="gc4 grid">
+    <!-- TODO: simplify the lower -->
+    {% for entry in site.data.footer %}
+      {% if entry.name == "Social" %}
+        {% for social in entry.types %}
+          <div class="gc12">{{social.name}}</div>
+        {% endfor%}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
