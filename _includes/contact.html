@@ -1,9 +1,19 @@
 <div class="contact gc12 grid">
-  <form class="gc8" action="">
-    <textarea name="name" rows="2" cols="20"></textarea>
-    <button type="button" name="button">Send mail</button>
+  <form class="gc10 grid" action="">
+    <div class="gc6 grid">
+      <span class="gc4">Name</span>
+      <input class="gc8" type="text" name="" value="">
+      <span class="gc4">Mail</span>
+      <input class="gc8" type="text" name="" value="">
+      <span class="gc4">Subject</span>
+      <input class="gc8" type="text" name="" value="">
+    </div>
+    <div class="gc6">
+      <textarea class="gc12" name="name" rows="5" cols="30"></textarea>
+      <button class="gc12" type="button" name="button">Send mail</button>
+    </div>
   </form>
-  <div class="gc4 grid">
+  <div class="gc2 grid">
     <!-- TODO: simplify the lower -->
     {% for entry in site.data.footer %}
       {% if entry.name == "Social" %}
