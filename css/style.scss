@@ -4,6 +4,10 @@
 media variables
 */
 
+*{
+  text-align: center;
+}
+
 body{
   margin: 0;
   padding: 0;
@@ -21,5 +25,40 @@ body{
       grid-row: auto / span $i;
     }
   }
+  &.main{
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    /* grid-template-areas:
+    "hd hd hd hd hd hd hd hd hd hd hd hd"
+    "sb sb ct ct ct ct ct ct ct ct ct ct"
+    "ft ft ft ft ft ft ft ft ft ft ft ft";
 
+    .header{
+      grid-area: hd;
+    }
+    .content{
+      grid-area: ct;
+    }
+    .sidebar{
+      grid-area: sb;
+    }
+    .footer{
+      grid-area: ft;
+    }
+*/
+
+  }
+
+  .grid{
+    border: .2em solid red;
+  }
+
+  *{
+    background: #555;
+
+    &:nth-child(odd){
+      background: #999;
+    }
+  }
 }
