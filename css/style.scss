@@ -4,51 +4,16 @@
 media variables
 */
 
+@import "color";
+@import "body";
+@import "grid";
+
+/*
 *{
   text-align: center;
 }
 
-body{
-  margin: 0;
-  padding: 0;
-}
-
 .grid{
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-
-  @for $i from 1 through 12{
-    .gc#{$i}{
-      grid-column: auto / span $i;
-    }
-    .gr#{$i}{
-      grid-row: auto / span $i;
-    }
-  }
-  &.main{
-    position: absolute;
-    width: 100%;
-    min-height: 100%;
-    /* grid-template-areas:
-    "hd hd hd hd hd hd hd hd hd hd hd hd"
-    "sb sb ct ct ct ct ct ct ct ct ct ct"
-    "ft ft ft ft ft ft ft ft ft ft ft ft";
-
-    .header{
-      grid-area: hd;
-    }
-    .content{
-      grid-area: ct;
-    }
-    .sidebar{
-      grid-area: sb;
-    }
-    .footer{
-      grid-area: ft;
-    }
-*/
-
-  }
 
   .grid{
     border: .2em solid red;
@@ -61,4 +26,31 @@ body{
       background: #999;
     }
   }
+} */
+
+.contact{
+  padding: 3rem;
+  min-height: 40vh;
+  background-color: var(--dark-color);
+  text-align: center;
+  color: var(--light-color2);
+
+  input,textarea{
+    background-color: var(--dark-color2);
+    color: var(--dark-color3);
+    border: none;
+    margin: 1em;
+  }
+  input{
+    height: 4em;
+    padding-right: 3em;
+    padding-left: 3em;
+  }
+
+  
+}
+
+.fa{
+  color: var(--light-color3);
+  font-size: 1.7em;
 }

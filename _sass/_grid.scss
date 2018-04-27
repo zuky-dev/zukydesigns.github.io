@@ -1,0 +1,37 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  
+    @for $i from 1 through 12{
+      .gc#{$i}{
+        grid-column: auto / span $i;
+      }
+      .gr#{$i}{
+        grid-row: auto / span $i;
+      }
+    }
+    &.main{
+      position: absolute;
+      width: 100%;
+      min-height: 100%;
+      /*TODO: grid-template-areas:
+      "hd hd hd hd hd hd hd hd hd hd hd hd"
+      "sb sb ct ct ct ct ct ct ct ct ct ct"
+      "ft ft ft ft ft ft ft ft ft ft ft ft";
+  
+      .header{
+        grid-area: hd;
+      }
+      .content{
+        grid-area: ct;
+      }
+      .sidebar{
+        grid-area: sb;
+      }
+      .footer{
+        grid-area: ft;
+      }
+  */
+  
+    }
+  }

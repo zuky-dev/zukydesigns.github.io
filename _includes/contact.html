@@ -1,4 +1,7 @@
 <div class="contact gc12 grid">
+  <div class="gc12">
+    <h2>CONTACT</h2>
+  </div>
   <form class="gc10 grid" action="">
     <div class="gc6 grid">
       <span class="gc4">Name</span>
@@ -8,8 +11,8 @@
       <span class="gc4">Subject</span>
       <input class="gc8" type="text" name="" value="">
     </div>
-    <div class="gc6">
-      <textarea class="gc12" name="name" rows="5" cols="30"></textarea>
+    <div class="gc6 grid">
+      <textarea class="gc12" name="name" rows="16" cols="30"></textarea>
       <button class="gc12" type="button" name="button">Send mail</button>
     </div>
   </form>
@@ -18,7 +21,7 @@
     {% for entry in site.data.footer %}
       {% if entry.name == "Social" %}
         {% for social in entry.types %}
-          <div class="gc12">{{social.name}}</div>
+          <a class="gc12" href="{{social.url}}"><span class="{{social.icon}}"></span></a>
         {% endfor%}
       {% endif %}
     {% endfor %}
