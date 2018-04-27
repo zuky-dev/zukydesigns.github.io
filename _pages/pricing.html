@@ -1,42 +1,7 @@
 ---
 layout: temp
-permalink: /pricing
+permalink: /pricing/
 ---
 
-<div class="container-fluid row d-none d-md-flex py-5">
-  <nav class="col-md-2 nav nav-tabs text-center flex-column px-5" role="tablist">
-    {% for tag in site.data.pricing %}
-    <a class="nav-link {% if forloop.first == true %}active{% endif %}" id="{{tag.name}}-tab" data-toggle="tab" href="#{{tag.name}}" role="tab" aria-controls="{{tag.name}}" aria-selected="{% if forloop.first == true %}true{% else %}false{% endif %}">{{tag.name}}</a>
-    {% endfor %}
-  </nav>
-
-  <div class="col-md-10 tab-content">
-    {% for tag in site.data.pricing %}
-    <div class="tab-pane fade {% if forloop.first == true %}show active{% endif %}" id="{{tag.name}}" role="tabpanel" aria-labelledby="{{tag.name}}-tab">
-      {{ tag.img }}, {{ tag.price }} <br>
-      {{ tag.info }}
-    </div>
-    {% endfor %}
-  </div>
-</div>
-
-<div id="accordion" class="d-md-none d-sm-block">
-  {% for tag in site.data.pricing %}
-  <div class="card">
-    <div class="card-header" id="heading{{tag.name}}">
-      <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse{{tag.name}}" aria-expanded="{% if forloop.first == true %}true{% else %}false{% endif %}" aria-controls="collapse{{tag.name}}">
-          {{tag.name}}
-        </button>
-      </h5>
-    </div>
-
-    <div id="collapse{{tag.name}}" class="collapse {% if forloop.first == true %}show{% endif %}" aria-labelledby="heading{{tag.name}}" data-parent="#accordion">
-      <div class="card-body">
-        {{ tag.img }}, {{ tag.price }} <br>
-        {{ tag.info }}
-      </div>
-    </div>
-  </div>
-  {% endfor %}
-</div>
+<link rel="stylesheet" href="../css/style.css">
+{% include contact.html %}

@@ -33,7 +33,7 @@ plugins:
 
 # etc variables
 author: "Lukáš Odler"
-version: "0.5.8a"
+version: "0.1.0a"
 
 include:
   - _pages
@@ -51,6 +51,8 @@ defaults:
       layout: "posts"
       permalink: "/news/:title/"
 
+sass:
+  style: compressed
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
