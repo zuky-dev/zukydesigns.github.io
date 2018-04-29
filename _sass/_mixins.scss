@@ -1,0 +1,81 @@
+@mixin breakpoint($classname, $property, $value, $maxfor, $unit){
+    @each $name, $values in $breakpoints{
+      $mq-name: $name;
+      $mq-mxw: map-get($values, min-w);
+      $mq-mnw: map-get($values, max-w);
+
+      //non media
+    @if $mq-name == "def"{
+        @if $maxfor == 1{
+            .#{$classname}{
+                #{$property}: #{$value} #{$unit};
+           }
+        }@else{
+            @for $i from 1 through $maxfor{
+                .#{$classname}#{$i}{
+                     #{$property}: #{$value} #{$i} #{$unit};
+                }
+            }
+        }
+   } @else {
+    //media up, ex md-up= md,lg,xl
+    @if $mq-name != "xs"{
+        @if $maxfor == 1{
+            @media (min-width: #{$mq-mnw}px)
+            {
+                .#{$classname}_#{$mq-name}-up{
+                    #{$property}: #{$value} #{$unit};
+                }
+            }
+        }@else{
+            @media (min-width: #{$mq-mnw}px)
+            {
+            @for $i from 1 through $maxfor{
+                .#{$classname}#{$i}_#{$mq-name}-up{
+                     #{$property}: #{$value} #{$i} #{$unit};
+                }
+            }
+            }
+        }
+    }
+    //media up, ex md-down= md,sm,xs
+    @if $mq-name != "lx"{
+        @if $maxfor == 1{
+            @media (max-width: #{$mq-mxw}px)
+            {
+                .#{$classname}_#{$mq-name}-down{
+                    #{$property}: #{$value} #{$unit};
+                }
+            }
+        }@else{
+            @media (max-width: #{$mq-mxw}px)
+            {
+            @for $i from 1 through $maxfor{
+                .#{$classname}#{$i}_#{$mq-name}-down{
+                     #{$property}: #{$value} #{$i} #{$unit};
+                }
+            }
+            }
+        }
+    }
+  }
+  }
+}
+
+@mixin prefix($prefix, $name){
+    #{$prefix}#{$name}{
+        @content;
+    }
+    #{$prefix}-webkit-#{$name}{
+        @content;
+    }
+    #{$prefix}-moz-#{$name}{
+        @content;
+    }
+    #{$prefix}-o-#{$name}{
+        @content;
+    }
+    #{$prefix}-ms-#{$name}{
+        @content;
+    }
+}

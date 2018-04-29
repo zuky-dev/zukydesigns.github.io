@@ -51,8 +51,8 @@ defaults:
       layout: "posts"
       permalink: "/news/:title/"
 
-sass:
-  style: compressed
+#sass:
+ # style: compressed
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

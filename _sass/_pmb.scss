@@ -1,0 +1,18 @@
+$location: "top", "bottom", "left", "right", "x", "y", "all";
+
+@include breakpoint(p, padding, 'calc( 0.5rem * ', 10, ')');
+@include breakpoint(px, padding, '0 calc( 0.5rem * ', 10, ')');
+@include breakpoint(py, padding, 'calc( 0.5rem * ', 10, ') 0');
+@include breakpoint(pt, padding-top, 'calc( 0.5rem * ', 10, ')');
+@include breakpoint(pb, padding-bottom, 'calc( 0.5rem * ', 10, ')');
+@include breakpoint(pl, padding-left, 'calc( 0.5rem * ', 10, ')');
+@include breakpoint(pr, padding-right, 'calc( 0.5rem * ', 10, ')');
+
+@include breakpoint(m, margin, 'calc( 0.5rem * ', 10, ')');
+@include breakpoint(mx, margin, '0 calc( 0.5rem * ', 10, ')');
+@include breakpoint(my, margin, 'calc( 0.5rem * ', 10, ') 0');
+@include breakpoint(mt, margin-top, 'calc( 0.5rem * ', 10, ')');
+@include breakpoint(mb, margin-bottom, 'calc( 0.5rem * ', 10, ')');
+@include breakpoint(ml, margin-left, 'calc( 0.5rem * ', 10, ')');
+@include breakpoint(mr, margin-right, 'calc( 0.5rem * ', 10, ')');
+

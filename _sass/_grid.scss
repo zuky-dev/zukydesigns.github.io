@@ -1,37 +1,35 @@
+$grid-i: 12 !default;
+
 .grid{
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-  
-    @for $i from 1 through 12{
-      .gc#{$i}{
-        grid-column: auto / span $i;
-      }
-      .gr#{$i}{
-        grid-row: auto / span $i;
+    grid-template-columns: repeat(#{$grid-i}, 1fr);
+
+    //grid columns
+    @for $i from 2 through $grid-i{
+      &.grid_c#{$i}{
+        grid-template-rows: repeat(#{$i}, 1fr);
       }
     }
+
+  //somehow do the offset
+  @for $i from 1 through $grid-i - 1{
+    @include breakpoint(go#{$i}c, grid-column, $i / span, $grid-i - $i + 1,'');
+    @include breakpoint(go#{$i}r, grid-row, $i / span, $grid-i - $i + 1,'');
+  }
+  //grid elements column and rows sizing
+  @include breakpoint(gc, grid-column, span, $grid-i,'');
+  @include breakpoint(gr, grid-row, span, $grid-i,'');
+
     &.main{
       position: absolute;
       width: 100%;
       min-height: 100%;
-      /*TODO: grid-template-areas:
-      "hd hd hd hd hd hd hd hd hd hd hd hd"
-      "sb sb ct ct ct ct ct ct ct ct ct ct"
-      "ft ft ft ft ft ft ft ft ft ft ft ft";
-  
-      .header{
-        grid-area: hd;
-      }
-      .content{
-        grid-area: ct;
-      }
-      .sidebar{
-        grid-area: sb;
-      }
-      .footer{
-        grid-area: ft;
-      }
-  */
-  
+    }
+
+    .txt{
+      display: flex;
+      justify-content: center;
+      align-self: center;
+      margin-bottom: 1em;
     }
   }
