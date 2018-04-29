@@ -1,27 +1,27 @@
-<div class="contact gc12 grid">
+<div class="contact gc12 grid p6 pt2">
   <div class="gc12">
-    <h2>CONTACT</h2><hr>
+    <h2>CONTACT</h2><hr class="mb2">
   </div>
-  <form class="gc10 grid" action="">
-    <div class="gc6 grid mInfo"> <!--TODO: classWTF-->
-      <span class="gc4">Name</span>
-      <input class="gc8" type="text" name="" value="">
-      <span class="gc4">Mail</span>
-      <input class="gc8" type="text" name="" value="">
-      <span class="gc4">Subject</span>
-      <input class="gc8" type="text" name="" value="">
+  <form class="gc10 gc12_md-down grid" action="">
+    <div class="gc6 gc12_md-down grid mInfo mt2"> <!--TODO: classWTF-->
+      <span class="gc4 gc12_sm-down txt">Name</span>
+      <input class="gc8 gc12_sm-down px6 mx2 mb2" type="text" name="" value="">
+      <span class="gc4 gc12_sm-down txt">Mail</span>
+      <input class="gc8 gc12_sm-down px6 mx2 mb2" type="text" name="" value="">
+      <span class="gc4 gc12_sm-down txt">Subject</span>
+      <input class="gc8 gc12_sm-down px6 mx2 mb2" type="text" name="" value="">
     </div>
-    <div class="gc6 grid">
-      <textarea class="gc12" name="name" rows="16" cols="30"></textarea>
-      <button class="gc4" type="button" name="button">Send mail</button>
+    <div class="gc6 gc12_md-down grid">
+      <textarea class="gc12 m2" name="name" rows="16" cols="30" placeholder="Insert text here."></textarea>
+      <button class="go9c4 gc12_md-down mx2 mb3 py2" type="button" name="button">Send mail</button>
     </div>
   </form>
-  <div class="gc2 grid">
+  <div class="gc2 gc12_md-down grid mt2">
     <!-- TODO: simplify the lower -->
     {% for entry in site.data.footer %}
       {% if entry.name == "Social" %}
         {% for social in entry.types %}
-          <a class="gc12" href="{{social.url}}"><span class="{{social.icon}}"></span></a>
+          <a class="gc12 gc{{12 | divided_by: entry.types.size | ceil }}_md-down" href="{{social.url}}"><span class="{{social.icon}}"></span></a>
         {% endfor%}
       {% endif %}
     {% endfor %}
