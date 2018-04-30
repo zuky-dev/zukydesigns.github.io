@@ -6,6 +6,7 @@
 @import "color";
 @import "body";
 @import "pmb";
+@import "wh";
 @import "grid";
 @import "scrollbar";
 
@@ -51,4 +52,15 @@ hr{
 
 h2{
   font-size: 2.3em;
+}
+
+.footer{
+  min-height: 5vh;
+  background-color: var(--dark-color2);
+  color: var(--light-color3);
+  
+}
+
+.darktxt{
+  color: var(--dark-color3);
 }

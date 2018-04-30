@@ -1,0 +1,48 @@
+
+  @each $name, $values in $breakpoints{
+    $mq-name: $name;
+    $mq-mxw: map-get($values, min-w);
+    $mq-mnw: map-get($values, max-w);
+
+    //non media
+    @if $mq-name == "def"{
+      @for $i from 1 through $grid-i{
+        .gc#{$i}{
+          grid-column: span #{$i};
+        }
+        .gr#{$i}{
+          grid-row: span #{$i};
+        }
+      }
+
+    } @else {
+      //media up, ex md-up= md,lg,xl
+      @if $mq-name != "xs"{
+       @media (min-width: #{$mq-mnw}px)
+       {
+         @for $i from 1 through $grid-i{
+            .gc#{$i}_#{$mq-name}-up{
+             grid-column: span #{$i};
+            }
+            .gr#{$i}_#{$mq-name}-up{
+              grid-row: span #{$i};
+             }
+          }
+       }
+      }
+      //media up, ex md-down= md,sm,xs
+      @if $mq-name != "lx"{
+        @media (max-width: #{$mq-mxw}px)
+        {
+         @for $i from 1 through $grid-i{
+           .gc#{$i}_#{$mq-name}-down{
+              grid-column: span #{$i};
+            }
+            .gr#{$i}_#{$mq-name}-down{
+              grid-row: span #{$i};
+            }
+          }
+        }
+      }
+    }
+  }

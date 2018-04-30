@@ -1,0 +1,21 @@
+@for $i from 1 through 100 / 5 {
+    $i: $i * 5;
+    .wmin#{$i}{
+        min-width: #{$i}vw;
+    }
+    .wmax#{$i}{
+        max-width: #{$i}vw;
+    }
+    .w#{$i}{
+        width: #{$i}vw;
+    }
+    .hmin#{$i}{
+        min-height: #{$i}vh;
+    }
+    .hmax#{$i}{
+        max-height: #{$i}vh;
+    }
+    .h#{$i}{
+        height: #{$i}vh;
+    }
+}

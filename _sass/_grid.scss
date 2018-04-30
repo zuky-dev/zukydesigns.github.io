@@ -11,12 +11,12 @@ $grid-i: 12 !default;
       }
     }
 
-  //somehow do the offset
+  //TODO: somehow do the offset
   @for $i from 1 through $grid-i - 1{
     @include breakpoint(go#{$i}c, grid-column, $i / span, $grid-i - $i + 1,'');
     @include breakpoint(go#{$i}r, grid-row, $i / span, $grid-i - $i + 1,'');
   }
-  //grid elements column and rows sizing
+  //TODO: grid elements column and rows sizing
   @include breakpoint(gc, grid-column, span, $grid-i,'');
   @include breakpoint(gr, grid-row, span, $grid-i,'');
 

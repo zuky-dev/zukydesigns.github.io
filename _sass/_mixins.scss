@@ -1,3 +1,4 @@
+//TODO: redo this
 @mixin breakpoint($classname, $property, $value, $maxfor, $unit){
     @each $name, $values in $breakpoints{
       $mq-name: $name;
@@ -78,4 +79,12 @@
     #{$prefix}-ms-#{$name}{
         @content;
     }
+}
+
+@mixin prefix_property($property, $value){
+    #{$property}: #{$value};
+    -webkit-#{$property}: #{$value};
+    -moz-#{$property}: #{$value};
+    -o-#{$property}: #{$value};
+    -ms-#{$property}: #{$value};
 }
