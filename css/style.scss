@@ -131,3 +131,27 @@ small{
   justify-content: center;
   align-content: center;
 }
+
+.tab-content{
+  display: none;
+}
+
+.current{
+  &.tabs{
+    background-color: var(--accent-color-dark);
+  }
+  &.tab-content{
+    display: block;
+  }
+  &.tab-content.grid{
+    display: grid;
+  }
+}
+
+
+.pricing{
+  min-height: 40vh;
+  background-color: var(--dark-color);
+  text-align: center;
+  color: var(--light-color2);
+}
