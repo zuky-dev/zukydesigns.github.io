@@ -1,4 +1,10 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: var(--dark-color);
+    @include prefix_property(background-size, cover);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-image: url('/images/carousel/1.jpg');
   }

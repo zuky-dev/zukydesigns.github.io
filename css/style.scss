@@ -64,3 +64,70 @@ h2{
 .darktxt{
   color: var(--dark-color3);
 }
+
+.about{ //TODO: dropdown part
+
+  .card{
+    background-color: var(--light-color);
+
+    .photo{
+      min-width: 20vw;
+      min-height: 20vw;
+      width: 30vh;
+      height: 30vh;
+      background-color: var(--dark-color2);
+      margin: 0 auto;
+      @include prefix_property(background-size, cover);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    hr{
+      border-color: var(--light-color3);
+    }
+  }
+}
+
+.tx-c{
+  text-align: center;
+}
+
+h3{
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+small{
+  color: var(--dark-color3);
+}
+
+.glass{
+  background-color: rgba(22, 22, 22, 0.5);//TODO: for sure change the var declaration, ya know styling issues, this is --dark-color2
+}
+
+.portfolio{
+  min-height: 40vh;
+
+  .icon{
+    margin: auto;
+    width: 15vh;
+    height: 15vh;
+    background-color: var(--dark-color);
+    border-radius: 100%;
+    color: var(--light-color3);
+  }
+
+  .tab{
+    min-height: 30vh;
+
+    .tabitem{
+      background-color: var(--dark-color2);
+    }
+  }
+}
+
+.txv-c{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
