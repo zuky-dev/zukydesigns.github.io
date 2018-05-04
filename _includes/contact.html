@@ -1,29 +1,31 @@
+{% assign mailto = '' %}
+{% for social in site.data.social %}
+  {% if social.name == 'E-Mail' %}
+    {% assign mailto = social.url %}
+  {% endif %}
+{% endfor %}
 <div class="contact gc12 grid p6 pt2">
   <div class="gc12">
     <h2>CONTACT</h2><hr class="mb2">
   </div>
-  <form class="gc10 gc12_md-down grid" action="">
+  <form id="contactForm" class="gc10 gc12_md-down grid" method="post" action="https://formspree.io/zukydesign@gmail.com" enctype="text/plain"><!--TODO: fix formspree WTFing-->
     <div class="gc6 gc12_md-down grid mInfo mt2"> <!--TODO: classWTF-->
       <span class="gc4 gc12_sm-down txt">Name</span>
-      <input class="gc8 gc12_sm-down px6 mx2 mb2" type="text" name="" value="">
+      <input class="gc8 gc12_sm-down px6 mx2 mb2" type="text" name="Name">
       <span class="gc4 gc12_sm-down txt">Mail</span>
-      <input class="gc8 gc12_sm-down px6 mx2 mb2" type="text" name="" value="">
+      <input class="gc8 gc12_sm-down px6 mx2 mb2" type="email" name="_replyto">
       <span class="gc4 gc12_sm-down txt">Subject</span>
-      <input class="gc8 gc12_sm-down px6 mx2 mb2" type="text" name="" value="">
+      <input class="gc8 gc12_sm-down px6 mx2 mb2" type="text" name="_subject">
     </div>
     <div class="gc6 gc12_md-down grid">
-      <textarea class="gc12 m2" name="name" rows="16" cols="30" placeholder="Insert text here."></textarea>
-      <button class="go9c4 gc12_md-down mx2 mb3 py2" type="button" name="button">Send mail</button>
+      <textarea class="gc12 m2" name="message" rows="16" cols="30" placeholder="Insert text here."></textarea>
+      <button class="go9c4 gc12_md-down mx2 mb3 py2 submit" type="submit">Send</button>
     </div>
   </form>
   <div class="gc2 gc12_md-down grid mt2">
     <!-- TODO: simplify the lower -->
-    {% for entry in site.data.footer %}
-      {% if entry.name == "Social" %}
-        {% for social in entry.types %}
-          <a class="gc12 gc{{12 | divided_by: entry.types.size | ceil }}_md-down" href="{{social.url}}"><span class="{{social.icon}}"></span></a>
-        {% endfor%}
-      {% endif %}
-    {% endfor %}
+    {% for social in site.data.social %}
+      <a class="gc12 gc{{12 | divided_by: site.data.social.size | ceil }}_md-down" href="{{social.url}}"><i class="{{social.icon}}" aria-hidden="true"></i></a>
+    {% endfor%}
   </div>
 </div>
