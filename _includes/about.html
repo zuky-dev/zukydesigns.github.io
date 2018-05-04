@@ -1,15 +1,15 @@
 <div class="gc12 grid about glass p4">
   <div class="go3c8 gc12_sm-down grid card p3 pt6">
-    <div class="gc12 photo mb4" style="background-image: url('/images/carousel/1.jpg');"></div><!--TODO: this clusterfuck < with actual photo bc not working on phones -->
+    <div class="gc12 photo mb4" style="background-image: url('{{site.data.about.photo}}');"></div><!--TODO: this clusterfuck < with actual photo bc not working on phones -->
     <div class="gc12">
       <div class="grid">
-          <h3 class="gc12 tx-c mt2 mb1">Lukas Odler</h3>
-          <small class="gc12 tx-c mb1">Junior frontend developer</small>
+          <h3 class="gc12 tx-c mt2 mb1">{{site.data.about.name}}</h3>
+          <small class="gc12 tx-c mb1">{{site.data.about.job}}</small>
       </div>
         <hr class="mx6">
     </div>
-    <p class="gc12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam similique nulla cupiditate fuga aspernatur magni. Ea dicta, sint est nostrum eum consectetur alias magni rerum qui sit corporis facilis iusto omnis dolorem adipisci aliquid animi laborum temporibus! Facere, harum atque? Excepturi, fugiat voluptatibus? Nobis, nulla. Natus odio hic iure eligendi?</p>
-    <p class="gc12 hidden">Lorem ipsum, dolor sit amet consectetur adipisicing elit. In quasi incidunt cupiditate fugiat sequi repellendus officiis vel distinctio eveniet vitae.</p>
-    <div class="gc12"><hr class="mx6 mb2 mt2"><span class="txt">Show more</span></div>
+    <p class="gc12">{{site.data.about.aboutsmall}}</p>
+    <p class="gc12 hidden">{{site.data.about.about}}<!--TODO: skills--></p>
+    <div class="gc12"><hr class="mx6 mb2 mt2"><span class="txt">Show more</span></div><!--TODO: show hide-->
   </div>
 </div>
