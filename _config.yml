@@ -33,7 +33,7 @@ plugins:
 
 # etc variables
 author: "Lukáš Odler"
-version: "0.1.0a"
+version: "0.5.0a"
 
 include:
   - _pages

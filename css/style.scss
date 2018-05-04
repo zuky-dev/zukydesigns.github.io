@@ -29,7 +29,7 @@
     resize: none;
   }
 
-  button{
+  .submit{
     background-color: var(--dark-color2);
     color: var(--light-color3);
     border: none;
@@ -43,7 +43,7 @@
 
 .fa{
   color: var(--light-color3);
-  font-size: 1.7em;
+  font-size: 1.7rem;
 }
 
 hr{
@@ -51,7 +51,7 @@ hr{
 }
 
 h2{
-  font-size: 2.3em;
+  font-size: 2.3rem;
 }
 
 .footer{
