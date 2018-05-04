@@ -1,21 +1,15 @@
 <div id="portfolio" class="portfolio glass gc12 grid p4">
   <div class="gc12 grid">
-      <div class="gc4 icon tx-c txv-c tabs current" data-tab="web">web</div>
-      <div class="gc4 icon tx-c txv-c tabs" data-tab="logo">logo</div>
-      <div class="gc4 icon tx-c txv-c tabs" data-tab="graphic">graphic</div>
+      {% for type in site.data.portfolio %}
+        <i class="gc{{12 | divided_by: site.data.portfolio.size | ceil }} icon tx-c txv-c tabs {% if forloop.first %}current{% endif %} {{type.icon}}" data-tab="{{type.name}}" aria-hidden="true"></i>
+      {% endfor %}
   </div>
   
-  <div id="web" class="gc12 grid tab pt3 tab-content current">
-    <div class="gc4 m1 tabitem tx-c txv-c">PH</div>
-    <div class="gc4 m1 tabitem tx-c txv-c">PH</div>
-    <div class="gc4 m1 tabitem tx-c txv-c">PH</div>
-    <div class="gc4 m1 tabitem tx-c txv-c">PH</div>
-  </div>
-  <div id="logo" class="gc12 grid tab pt3 tab-content">
-      <div class="gc4 m1 tabitem tx-c txv-c">PH</div>
-      <div class="gc4 m1 tabitem tx-c txv-c">PH</div>
-  </div>
-  <div id="graphic" class="gc12 grid tab pt3 tab-content">
-      <div class="gc4 m1 tabitem tx-c txv-c">PH</div>
-  </div>
+  {% for type in site.data.portfolio %}
+    <div id="{{type.name}}" class="gc12 grid tab pt3 tab-content {% if forloop.first %}current{% endif %}">
+        {% for entry in type.entries %}
+            <div class="gc4 m1 tabitem tx-c txv-c">{{entry.name}}</div>
+        {% endfor %}
+    </div>
+  {% endfor %}
 </div>

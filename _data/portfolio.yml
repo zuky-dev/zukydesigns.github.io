@@ -1,15 +1,16 @@
-- type: "Graphic"
+- name: "web"
+  icon: "fa fa-code"
   entries:
-    - name: "Death & Strawberry"
+    - name: "ZukyDesigns"
       url: "imgurl"
       download: false
 
-    - name: "Darkness encapsulated"
+    - name: "Z&Z Car Crew"
       url: "imgurl"
-      download: true
+      download: false
 
-
-- type: "Logos"
+- name: "logo"
+  icon: "fa fa-creative-commons"
   entries:
     - name: "Zuky"
       url: "imgurl"
@@ -19,13 +20,13 @@
       url: "imgurl"
       download: false
 
-
-- type: "Websites"
+- name: "graphic"
+  icon: "fa fa-pencil-square-o"
   entries:
-    - name: "ZukyDesigns"
+    - name: "Death & Strawberry"
       url: "imgurl"
       download: false
 
-    - name: "Z&Z Car Crew"
+    - name: "Darkness encapsulated"
       url: "imgurl"
-      download: false
+      download: true
