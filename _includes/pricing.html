@@ -2,13 +2,13 @@
   <div class="gc12">
       <h2>INTERESTED?</h2><hr class="mb2">
   </div>
-  <div class="gc3 grid">
+  <div class="gc3 gc12_md-down grid">
     {% for type in site.data.pricing %}
-      <div class="gc12 tabs {% if forloop.first %}current{% endif %}" data-tab="{{type.id}}">{{type.name}}</div>
+      <div class="gc12 gc{{12 | divided_by: site.data.pricing.size | ceil }}_md-down tabs {% if forloop.first %}current{% endif %}" data-tab="{{type.id}}">{{type.name}}</div>
     {% endfor %}
   </div>
 
   {% for type in site.data.pricing %}
-  <div id="{{type.id}}" class="gc9 tab-content {% if forloop.first %}current{% endif %}">{{type.price}}<br>{{type.info}}</div>
+  <div id="{{type.id}}" class="gc9 gc12_md-down tab-content {% if forloop.first %}current{% endif %}">{{type.price}}<br>{{type.info}}</div>
   {% endfor %}
 </div>
