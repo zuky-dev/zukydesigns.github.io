@@ -9,6 +9,6 @@ $(document).ready(function(){
 
 		$(this).addClass('current');
 		$('#'+tabname+" #"+tab_id).addClass('current');
-	})
+	});
 
-})
+});
