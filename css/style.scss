@@ -65,6 +65,10 @@ h2{
   color: var(--dark-color3);
 }
 
+.hidden{
+  display: none;
+}
+
 .about{ //TODO: dropdown part
 
   .card{
@@ -85,6 +89,10 @@ h2{
     hr{
       border-color: var(--light-color3);
     }
+  }
+
+  .show:hover>.hidden, .show:active>.hidden{
+    display: block;
   }
 }
 
@@ -109,11 +117,7 @@ small{
   min-height: 40vh;
 
   .icon{
-    margin: auto;
-    width: 15vh;
-    height: 15vh;
-    background-color: var(--dark-color);
-    border-radius: 100%;
+
     color: var(--light-color3);
   }
 
@@ -138,7 +142,8 @@ small{
 
 .current{
   &.tabs{
-    background-color: var(--accent-color-dark);
+    color: var(--accent-color-dark);
+    border-color: var(--accent-color-dark);
   }
   &.tab-content{
     display: block;
@@ -154,4 +159,14 @@ small{
   background-color: var(--dark-color);
   text-align: center;
   color: var(--light-color2);
+}
+
+.bigi{
+  font-size: 4.5rem;
+  border-bottom: 0.1rem solid var(--light-color2);
+
+  &:hover{
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+  }
 }
