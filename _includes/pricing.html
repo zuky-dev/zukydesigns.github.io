@@ -9,6 +9,15 @@
   </div>
 
   {% for type in site.data.pricing %}
-  <div id="{{type.id}}" class="gc9 gc12_md-down tab-content {% if forloop.first %}current{% endif %}">{{type.price}}<br>{{type.info}}</div>
+  <div id="{{type.id}}" class="gc9 gc12_md-down tab-content {% if forloop.first %}current{% endif %}">
+    <table>
+      {% for price in type.prices %}
+        <tr>
+          <td>{{price.info}}</td>
+          <td>{{price.price}}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
   {% endfor %}
 </div>

@@ -5,6 +5,7 @@
   curriculum: "pdf url"
   skills:
     - skillname: "Programming"
+      id: "programming"
       icon: ""
       types:
         - name: "Languages"
@@ -76,6 +77,7 @@
             - name: "Jekyll"
               skill: "Intermediate"
     - skillname: "Graphic"
+      id: "graphic"
       icon: ""
       types:
         - name: "Design"

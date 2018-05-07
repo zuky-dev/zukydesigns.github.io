@@ -1,6 +1,6 @@
 <div class="gc12 grid about glass p4">
   <div class="go3c8 gc12_sm-down grid card p3 pt6">
-    <div class="gc12 photo mb4" style="background-image: url('{{site.data.about.photo}}');"></div><!--TODO: this clusterfuck < with actual photo bc not working on phones -->
+    <div class="gc12 photo mb4" style="background-image: url('{{site.data.about.photo}}');"></div>
     <div class="gc12">
       <div class="grid">
           <h3 class="gc12 tx-c mt2 mb1">{{site.data.about.name}}</h3>
@@ -10,9 +10,40 @@
     </div>
     <p class="gc12">{{site.data.about.aboutsmall}}</p>
     <div class="gc12 show">
-      <p class="gc12 hidden">{{site.data.about.about}}<!--TODO: skills--></p>
+      <div class="gc12 hidden grid">
+        <p class="gc12">{{site.data.about.about}}</p>
+        <div id="skills" class="gc12 grid">
+          <div class="gc3 grid">
+            {% for skill in site.data.about.skills %}
+              <div class="gc12 tabs {% if forloop.first %}current{% endif %}" data-tab="{{skill.id}}">{{skill.skillname}}</div>
+            {% endfor %}
+          </div>
+          {% for skill in site.data.about.skills %}
+            <div id="{{skill.id}}" class="gc9 tab-content grid {% if forloop.first %}current{% endif %}">
+              <div class="gc12 grid">
+                {% for subname in skill.types %}
+                  <div class="gc{{12 | divided_by: skill.types.size | ceil }} tabs {% if forloop.first %}current{% endif %}" data-tab:"{{subname.id}}">{{subname.name}}</div>
+                {% endfor %}
+              </div class="gc12">
+              {% for subname in skill.types %}
+                <div id="{{subname.id}}" class="gc12 tab-content {% if forloop.first %}current{% endif %}">
+                  <table>
+                      {% for subskill in subname.types %}
+                        <tr>
+                          <td>{{subskill.name}}</td>
+                          <td>{{subskill.skill}}</td>
+                        </tr>
+                      {% endfor %}
+                    </table>
+                </div>
+              {% endfor %}
+            </div>
+          {% endfor %}
+        </div>
+        <!--TODO: skills bug-->
+      </div>
       <hr class="mx6 mb2 mt2">
       <span class="txt">Show more</span>
-    </div><!--TODO: show hide-->
+    </div>
   </div>
 </div>

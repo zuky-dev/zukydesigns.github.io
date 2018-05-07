@@ -69,7 +69,7 @@ h2{
   display: none;
 }
 
-.about{ //TODO: dropdown part
+.about{
 
   .card{
     background-color: var(--light-color);
@@ -94,6 +94,9 @@ h2{
   .show:hover>.hidden, .show:active>.hidden{
     display: block;
   }
+  .show:hover>.hidden.grid, .show:active>.hidden.grid{
+    display: grid;
+  }
 }
 
 .tx-c{
@@ -117,7 +120,6 @@ small{
   min-height: 40vh;
 
   .icon{
-
     color: var(--light-color3);
   }
 
@@ -159,6 +161,10 @@ small{
   background-color: var(--dark-color);
   text-align: center;
   color: var(--light-color2);
+  
+  .tabs{
+    font-size: 1.2rem;
+  }
 }
 
 .bigi{
