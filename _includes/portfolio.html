@@ -1,7 +1,7 @@
 <div id="portfolio" class="portfolio glass gc12 grid p4">
   <div class="gc12 grid">
       {% for type in site.data.portfolio %}
-        <i class="gc{{12 | divided_by: site.data.portfolio.size | ceil }} icon tx-c txv-c tabs {% if forloop.first %}current{% endif %} {{type.icon}} bigi m2 pb2" data-tab="{{type.name}}" aria-hidden="true"></i>
+        <i class="gc{{12 | divided_by: site.data.portfolio.size | ceil }} icon tx-c txv-c tabs {% if forloop.first %}current{% endif %} {{type.icon}} bigi {% if forloop.first %} ml2 {% endif %}{% if forloop.last %} mr2 {% endif %} pb2" data-tab="{{type.name}}" aria-hidden="true"></i>
       {% endfor %}
   </div>
 

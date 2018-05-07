@@ -23,7 +23,6 @@
     </div>
   </form>
   <div class="gc2 gc12_md-down grid mt2">
-    <!-- TODO: simplify the lower -->
     {% for social in site.data.social %}
       <a class="gc12 gc{{12 | divided_by: site.data.social.size | ceil }}_md-down" href="{{social.url}}"><i class="{{social.icon}}" aria-hidden="true"></i></a>
     {% endfor%}
