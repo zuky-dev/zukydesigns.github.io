@@ -105,10 +105,11 @@ body, body *{
 
 #devmsg{
     position: fixed;
+    width: 100vw;
     font-family: 'Encode Sans Condensed', sans-serif;
     font-weight: 900;
     font-size: 2.5rem;
     top: 85vh;
-    left: 33vw;
+    text-align: center;
     color: red;
 }
