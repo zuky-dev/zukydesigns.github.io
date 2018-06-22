@@ -1,0 +1,114 @@
+body, body *{
+    padding: 0;
+    margin: 0;
+}
+
+#background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+}
+
+#backgroundimage{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('../images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(4px);
+}
+
+#backgroundgradient{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, rgba(255,255,255,1), rgba(255,255,255,0.7), rgba(255,255,255,0.5), rgba(255,255,255,0.2),  rgba(0,0,0,0), rgba(0,0,0,0));
+    background-size: cover;
+}
+
+#body{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#profileinfo{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    position: relative;
+    left: 14.5vw;
+    top: 2vh;
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+#name{
+    font-size: 2.8rem;
+    font-weight: 400;
+}
+
+#occupation{
+    font-size: 1.2rem;
+    font-weight: 100;
+}
+
+#profilepic{
+    height: 35vh;
+    width: auto;
+    border-radius: 100%;
+    box-shadow: 0 0 15px black;
+}
+
+#links{
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1vw;
+    position: relative;
+    left: -17.5vw;
+    top: 19vh;
+}
+
+#links a{
+    background: white;
+    border-radius: 100%;
+    padding: 1.3vw;
+    box-shadow: 0 0 15px black;
+    color: black;
+}
+
+#icon{
+    font-size: 2rem;
+}
+
+#copy{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-weight: 100;
+    color: #999;
+    padding: 2vh 1.5vw;
+}
+
+#devmsg{
+    position: fixed;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    top: 85vh;
+    left: 33vw;
+    color: red;
+}
