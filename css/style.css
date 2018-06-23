@@ -100,6 +100,14 @@ body, body *{
 }
 
 #links{
+    order: 3;
+}
+
+#menu{
+    
+}
+
+#social{
     display: grid;
     text-align: center;
     grid-template-columns: 1fr 1fr 1fr;
@@ -107,12 +115,11 @@ body, body *{
     position: relative;
     left: -17.5vw;
     top: 19vh;
-    order: 3;
     /*opacity: 0;
     transition: opacity 300ms ease-in-out;*/
 }
 
-#links a{
+#social a{
     background: white;
     border-radius: 100%;
     padding: 1.3vw;
@@ -120,7 +127,7 @@ body, body *{
     color: black;
 }
 
-#links a:hover{
+#social a:hover{
     background: #161616;
     border-radius: 100%;
     padding: 1.3vw;
