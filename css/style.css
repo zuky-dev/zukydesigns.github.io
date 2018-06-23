@@ -104,7 +104,47 @@ body, body *{
 }
 
 #menu{
-    
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    border-radius: 50vh;
+    width: 0;
+    height: 0;
+    left: -18vw;
+}
+
+#menu #menuitem{
+    /*display: none;*/
+    position: relative;
+}
+
+#menuitem{
+    padding: 1.7vw;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-size: 1.7rem;
+    background: white;
+    box-shadow: 0 0 15px black;
+}
+
+#menuitem:nth-child(1){
+    padding-left: 2rem;
+    z-index: 3;
+    transition: transform 300ms ease-in-out;
+    left: -10vw;
+}
+#menuitem:nth-child(2){
+    z-index: 2;
+    transition: transform 300ms ease-in-out 50ms;
+    left: -20vw;
+}
+#menuitem:nth-child(3){
+    padding-right: 2rem;
+    border-top-right-radius: 50vh;
+    border-bottom-right-radius: 50vh;
+    z-index: 1;
+    transition: transform 300ms ease-in-out 100ms;
+    left: -30vw;
 }
 
 #social{
@@ -125,14 +165,6 @@ body, body *{
     padding: 1.3vw;
     box-shadow: 0 0 15px black;
     color: black;
-}
-
-#social a:hover{
-    background: #161616;
-    border-radius: 100%;
-    padding: 1.3vw;
-    box-shadow: inset 0 0 15px black;
-    color: #999;
 }
 
 #icon{
@@ -160,25 +192,62 @@ body, body *{
     color: red;
 }
 
-/*animations todo onToggle*/
+/*hovers*/
+#social a:hover{
+    background: #161616;
+    box-shadow: inset 0 0 15px black;
+    color: #999;
+}
 
-#profilepic:hover{
+#menuitem:hover{
+    background: #161616;
+    box-shadow: inset 0 0 15px black;
+    color: #999;
+}
+
+/*animations*/
+#profilepic.active{
     background: url('../images/photo.png');
     background-size: cover;
 }
 
-#profilepic:hover + #profileinfo #personal{
+#profilepic.active + #profileinfo #personal{
     opacity: 1;
     transform: translateX(-18vw);
 }
 
 
-#profilepic:hover + #profileinfo #company{
+#profilepic.active + #profileinfo #company{
     opacity: 0;
     transform: translateX(18vw);
+}
+
+#profilepic.active ~ #links #menu #menuitem{
+    display: block;
+    opacity: 0;
+    animation: menu 300ms ease-in-out forwards;
+}
+
+#profilepic.active ~ #links #menu #menuitem:nth-child(1){
+    transform: translateX(10vw);
+}
+#profilepic.active ~ #links #menu #menuitem:nth-child(2){
+    transform: translateX(20vw);
+}
+#profilepic.active ~ #links #menu #menuitem:nth-child(3){
+    transform: translateX(30vw);
 }
 
 /*
 #profilepic:hover ~ #links{
     opacity: 1;
 } */
+
+@keyframes menu{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
