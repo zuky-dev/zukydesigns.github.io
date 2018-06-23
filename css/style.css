@@ -150,7 +150,6 @@ body, body *{
 }
 
 #devmsg{
-    display: none;
     position: fixed;
     width: 100vw;
     font-family: 'Encode Sans Condensed', sans-serif;
