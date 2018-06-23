@@ -62,14 +62,19 @@ body, body *{
     opacity: 1;
     position: relative;
     top: 7vh;
-    transition: opacity 300ms ease-in-out;
+    transition-property: transform,opacity;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
 }
 #personal{
     position: relative;
     top: -5vh;
-    /*left: 18vw;*/
+    left: 18vw;
     opacity: 0;
-    transition: opacity 300ms ease-in-out;
+    /*transition: transform,opacity 300ms ease-in-out;*/
+    transition-property: transform,opacity;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
 }
 
 #name{
@@ -91,6 +96,7 @@ body, body *{
     box-shadow: 0 0 15px black;
     order: 2;
     z-index: 5;
+    transition: background 300ms ease-in-out;
 }
 
 #links{
@@ -102,6 +108,8 @@ body, body *{
     left: -17.5vw;
     top: 19vh;
     order: 3;
+    /*opacity: 0;
+    transition: opacity 300ms ease-in-out;*/
 }
 
 #links a{
@@ -146,7 +154,7 @@ body, body *{
     color: red;
 }
 
-/*animations*/
+/*animations todo onToggle*/
 
 #profilepic:hover{
     background: url('../images/photo.png');
@@ -155,9 +163,16 @@ body, body *{
 
 #profilepic:hover + #profileinfo #personal{
     opacity: 1;
+    transform: translateX(-18vw);
 }
 
 
 #profilepic:hover + #profileinfo #company{
     opacity: 0;
+    transform: translateX(18vw);
 }
+
+/*
+#profilepic:hover ~ #links{
+    opacity: 1;
+} */
