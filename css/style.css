@@ -45,13 +45,31 @@ body, body *{
 }
 
 #profileinfo{
-    display: flex;
-    flex-direction: column;
     text-align: right;
     position: relative;
     left: 14.5vw;
     top: 2vh;
     font-family: 'Encode Sans Condensed', sans-serif;
+    order: 1;
+}
+
+.flex{
+    flex-direction: column;
+    display: flex;
+}
+
+#company{
+    opacity: 1;
+    position: relative;
+    top: 7vh;
+    transition: opacity 300ms ease-in-out;
+}
+#personal{
+    position: relative;
+    top: -5vh;
+    /*left: 18vw;*/
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
 }
 
 #name{
@@ -65,10 +83,14 @@ body, body *{
 }
 
 #profilepic{
+    background: url('../images/ZD.png');
+    background-size: cover;
     height: 35vh;
-    width: auto;
+    width: 35vh;
     border-radius: 100%;
     box-shadow: 0 0 15px black;
+    order: 2;
+    z-index: 5;
 }
 
 #links{
@@ -79,6 +101,7 @@ body, body *{
     position: relative;
     left: -17.5vw;
     top: 19vh;
+    order: 3;
 }
 
 #links a{
@@ -87,6 +110,14 @@ body, body *{
     padding: 1.3vw;
     box-shadow: 0 0 15px black;
     color: black;
+}
+
+#links a:hover{
+    background: #161616;
+    border-radius: 100%;
+    padding: 1.3vw;
+    box-shadow: inset 0 0 15px black;
+    color: #999;
 }
 
 #icon{
@@ -104,6 +135,7 @@ body, body *{
 }
 
 #devmsg{
+    display: none;
     position: fixed;
     width: 100vw;
     font-family: 'Encode Sans Condensed', sans-serif;
@@ -112,4 +144,20 @@ body, body *{
     top: 85vh;
     text-align: center;
     color: red;
+}
+
+/*animations*/
+
+#profilepic:hover{
+    background: url('../images/photo.png');
+    background-size: cover;
+}
+
+#profilepic:hover + #profileinfo #personal{
+    opacity: 1;
+}
+
+
+#profilepic:hover + #profileinfo #company{
+    opacity: 0;
 }
