@@ -40,6 +40,13 @@ $('.exit').on('click', function(){
     history.replaceState({}, document.title, $(location).attr('pathname'));
 });
 
-// TODO content scrollable is somewhat
 // TODO mobile ui css responsive
-// TODO loading link function
+// TODO 404 loading
+
+
+$('.gitem').on('mousemove', function(e){
+    $(this).find('#ginfo').css( 'position', 'absolute' ).css( 'top', e.pageY - 10).css( 'left', e.pageX - 40).show();
+});
+$('.gitem').on('mouseleave', function(e){
+    $(this).find('#ginfo').css( 'position', 'absolute' ).hide();
+});
