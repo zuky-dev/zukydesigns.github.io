@@ -12,6 +12,7 @@ $(document).ready(function(){
 
         //the hash is in array|else delete wrong hash from history
         if(idArray.indexOf(hash) != -1){
+            $('#profilepic').toggleClass('active');
             $('#content').toggleClass('active');
             $('#content .conitem'+hash).toggleClass('active');
         }else{
