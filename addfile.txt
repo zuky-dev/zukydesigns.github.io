@@ -1,0 +1,32 @@
+---GALLERY--
+
+1. image
+<!--<div class="gitem">
+    <div id="gimg">
+        <i id="ico" class="fa fa-picture-o !!OR!! fa-code" aria-hidden="true"></i>
+        <div class="imgishadow"></div>
+        <img src="!!IMGSRC!!" alt="">
+    </div>
+        <div id="ginfo">
+        <span id="gtitle">!!TITLE!!</span>
+        <hr>
+        <span id="gdescription">!!DESC!!</span>
+    </div>
+</div>
+
+
+2. link
+<div class="gitem">
+    <div id="gimg">
+        <i id="ico" class="fa fa-code" aria-hidden="true"></i>
+        <a target="_blank" href="!!HREF!!" class="imgishadow"></a>
+        <img src="!!IMGSRC!!" alt="">
+    </div>
+    <div id="ginfo">
+        <span id="gtitle">!!TITLE!!</span>
+        <hr>
+        <span id="gdescription">!!DESC!!</span>
+    </div>
+</div>
+
+---END---

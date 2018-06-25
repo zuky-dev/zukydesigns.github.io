@@ -359,6 +359,9 @@ a, a:hover, a:visited, a:focus{
 
 hr{
     border-color: #b6b6b6;
+}
+
+#titlehr{
     margin: 0vh 3vw;
     margin-bottom: 4vh;
 }
@@ -381,14 +384,78 @@ hr{
 .gitem{
     display: inline-block;
     width: 100%;
+    /*TODO this on mobile vers position: relative;*/
 }
 
-.gitem img{
+#gimg{
+    position: relative;
+    overflow: hidden;
+}
+
+#gimg img{
     width: 100%;
+    transform: scale(2, 2);
+    transition: transform 300ms ease-in-out;
+}
+
+#gimg.active img{
+    transform: scale(1.1, 1.1);
+}
+
+.imgishadow{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+    right: 0;
+    box-shadow: inset 0 0 50px black;
+    background: rgba(0,0,0,0.5);
+    transition: box-shadow,background 300ms ease-in-out;
+    z-index: 7;
+}
+
+#gimg.active .imgishadow{
+    box-shadow: inset 0 0 0px black;
+    background: rgba(0,0,0,0);
+}
+
+#gimg #ico{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: rgba(255,255,255,0.5);
+    font-size: 1.7rem;
+    padding: 3%;
+    z-index: 8;
+    transition: color 300ms ease-in-out;
+}
+
+#gimg.active #ico{
+    color: rgba(128,128,128,0.5);
 }
 
 #ginfo{
     display:none;
     background: white;
-    width: 10vw;
+    width: 30%;
+    z-index: 9;
+    border: 2px solid #b6b6b6;
+    box-shadow: 0 0 7px rgba(0,0,0,0.5);
+}
+
+#ginfo hr{
+    margin: 0 10%;
+}
+
+#gtitle{
+    display: block;
+    font-weight: 400;
+    padding: 0.5vh 0;
+    font-size: 1.3rem;
+}
+
+#gdescription{
+    font-weight: 100;
+    display: block;
+    padding: 0.5vh 0;
 }
