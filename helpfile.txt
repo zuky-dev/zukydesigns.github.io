@@ -29,4 +29,25 @@
     </div>
 </div>
 
+---ABOUT---
+
+<li>
+    <div id="aitem">
+        <div id="atext">
+            <span id="atitle">!!TITLE</span>
+            <hr>
+            <span id="adesc">!!DESC!!</span>
+        </div>
+        <div id="aimg" style="background: url(!!URL!!) no-repeat;background-size: cover"></div>
+        <time id="adate">!!DATE!!</time>
+    </div>
+</li>
+
 ---END---
+
+//this is dynamic jq
+$(document).on('event', 'element', function(){});
+
+//testing json
+//in console
+http-server -c-1
