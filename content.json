@@ -1,0 +1,38 @@
+{
+    "gallery":[
+        {
+            "link": false,
+            "picsrc": "./images/gallery/tricko.png",
+            "title": "Ryong Camp 2016",
+            "desc": "vectorisation of a design"
+        },
+        {
+            "link": true,
+            "href": "google.com",
+            "picsrc": "./images/gallery/Zolo Banner.jpg",
+            "title": "JPRex banner",
+            "desc": "his banner for yt and deviantart"
+        },
+        {
+            "link": false,
+            "picsrc": "./images/background.jpg",
+            "title": "My background",
+            "desc": "lorem"
+        }
+    ],
+    "about":[
+        {
+            "date": "26. June 2018",
+            "picsrc": "./images/ZD.png",
+            "title": "It works",
+            "desc": "lorem"
+        },
+        {
+            "date": "26. June 2018",
+            "picsrc": "./images/ZD.png",
+            "title": "It works 2",
+            "desc": "lorem"
+        }
+    ],
+    "projects":[]
+}

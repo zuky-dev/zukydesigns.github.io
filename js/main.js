@@ -21,6 +21,25 @@ $(document).ready(function(){
     }
 });
 
+//loading stuff from json
+$(document).ready(function(){
+    $.getJSON('./content.json', function(data){
+        /*$(data.projects).each();*/
+        //loading gallery
+        $(data.gallery).each(function(key,value){
+            var str = '<div class="gitem"><div id="gimg"><i id="ico" class="fa fa-'+(value.link ? 'code' : 'picture-o')+'" aria-hidden="true"></i><' + (value.link ? ('a target="_blank" href="' + value.href + '"') : ('div')) + ' class="imgishadow"></' + (value.link ? ('a') : ('div')) + '><img src="' + value.picsrc + '" alt=""></div><div id="ginfo"><span id="gtitle">' + value.title + '</span><hr><span id="gdescription">' + value.desc + '</span></div></div>';
+
+            $(str).appendTo('#gallery .gallery');
+            
+        });
+        //loading timeline
+        $(data.about).each(function(key, value){
+            var str = '<li><div id="aitem"><div id="atext"><span id="atitle">'+value.title+'</span><hr><span id="adesc">'+value.desc+'</span></div><div id="aimg" style="background: url('+value.picsrc+') no-repeat;background-size: cover"></div><time id="adate">'+value.date+'</time></div></li>';
+            $(str).appendTo('#timeline ul');
+        });
+    });
+});
+
 //profilepic on click show function
 $('#profilepic').on('click', function(){
     $(this).toggleClass('active');
@@ -41,25 +60,28 @@ $('.exit').on('click', function(){
 });
 
 //gallery animation on hover
-$('.imgishadow').on('mouseenter', function(){
+$(document).on('mouseenter', '.imgishadow', function(){
     $(this).parent().addClass('active');
 });
-$('.imgishadow').on('mouseleave', function(){
+$(document).on('mouseleave', '.imgishadow', function(){
     $(this).parent().removeClass('active');
 });
 
 //show text when hovering over img--bug scale-> on shadow of the image
-$('.imgishadow').on('mousemove', function(e){
-    var offx = e.pageX * 2 > $(window).width() ? 8.4 : 1;
-    var x = e.pageX - 50 * offx;
-    var y = e.pageY + $('#gallery').scrollTop() - 10;
+$(document).on('mousemove', '.imgishadow', function(e){
+    var offx = e.pageX * 2 > $(window).width() ? 6.5 : 1;
+    /*var offy = e.pageY * 2 > $(window).height() ? 11 : 1;*/
+    var x = e.pageX - 65 * offx;
+    var y = e.pageY + $('#gallery').scrollTop() - 25; /* * offy;*/
     $(this).parent().parent().find('#ginfo').css( 'position', 'absolute' ).css( 'top', y).css( 'left', x).show();
 });
-
-$('.imgishadow').on('mouseleave', function(e){
+//hide when not mousing over
+$(document).on('mouseleave', '.imgishadow', function(e){
     $(this).parent().parent().find('#ginfo').css( 'position', 'absolute' ).hide();
 });
 
-// TODO gallery maximize image in click
+// TODO gallery maximize image on click
 // TODO mobile ui css responsive
 // TODO 404 loading
+
+//TODO gallery image no register point ev
