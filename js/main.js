@@ -24,18 +24,17 @@ $(document).ready(function(){
 //loading stuff from json
 $(document).ready(function(){
     $.getJSON('./content.json', function(data){
-        /*$(data.projects).each();*/
+        /*$(data.projects).each(function(key,value){});*/
         //loading gallery
         $(data.gallery).each(function(key,value){
             var str = '<div class="gitem"><div id="gimg"><i id="ico" class="fa fa-'+(value.link ? 'code' : 'picture-o')+'" aria-hidden="true"></i><' + (value.link ? ('a target="_blank" href="' + value.href + '"') : ('div')) + ' class="imgishadow"></' + (value.link ? ('a') : ('div')) + '><img src="' + value.picsrc + '" alt=""></div><div id="ginfo"><span id="gtitle">' + value.title + '</span><hr><span id="gdescription">' + value.desc + '</span></div></div>';
 
             $(str).appendTo('#gallery .gallery');
-            
         });
         //loading timeline
         $(data.about).each(function(key, value){
             var str = '<li><div id="aitem"><div id="atext"><span id="atitle">'+value.title+'</span><hr><span id="adesc">'+value.desc+'</span></div><div id="aimg" style="background: url('+value.picsrc+') no-repeat;background-size: cover"></div><time id="adate">'+value.date+'</time></div></li>';
-            $(str).appendTo('#timeline ul');
+            $(str).prependTo('#timeline ul');
         });
     });
 });
@@ -84,4 +83,4 @@ $(document).on('mouseleave', '.imgishadow', function(e){
 // TODO mobile ui css responsive
 // TODO 404 loading
 
-//TODO gallery image no register point ev
+// TODO smart search using classes

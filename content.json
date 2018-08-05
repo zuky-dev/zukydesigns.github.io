@@ -20,19 +20,220 @@
             "desc": "lorem"
         }
     ],
+
     "about":[
         {
-            "date": "26. June 2018",
-            "picsrc": "./images/ZD.png",
-            "title": "It works",
+            "date": "16. March 1997",
+            "picsrc": "./images/about/info.png",
+            "title": "Hello World!",
+            "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea corrupti asperiores provident beatae deleniti sit maiores mollitia adipisci aut eligendi. Iste accusantium voluptates neque dignissimos laborum voluptatem magni, hic numquam illo, fugit nam aliquam. Accusamus alias veritatis quibusdam incidunt culpa. Aliquid necessitatibus in eos vero? Rerum qui consectetur harum atque, animi itaque! Deleniti odio fugiat voluptatum id temporibus doloremque nihil amet dolorem et. Excepturi, modi accusantium. Sunt necessitatibus eveniet corporis! Optio quis itaque aut velit qui et corrupti maiores a consequatur quam! Illum quo aut voluptatem, aliquid, quasi, excepturi molestiae iusto vel tempore unde beatae soluta adipisci pariatur minima doloremque?"
+        },
+        {
+            "date": "2009?",
+            "picsrc": "./images/about/falcon.png",
+            "title": "Kick",
             "desc": "lorem"
         },
         {
-            "date": "26. June 2018",
-            "picsrc": "./images/ZD.png",
-            "title": "It works 2",
+            "date": "2011",
+            "picsrc": "./images/about/ps.png",
+            "title": "Graphic design",
+            "desc": "lorem"
+        },
+        {
+            "date": "2013",
+            "picsrc": "./images/about/wacom.png",
+            "title": "Drawing better",
+            "desc": "lorem"
+        },
+        {
+            "date": "September 2013?",
+            "picsrc": "./images/about/ryong.png",
+            "title": "Ready, Set, TKD!",
+            "desc": "lorem"
+        },
+        {
+            "date": "18. September 2015",
+            "picsrc": "./images/about/fiit.png",
+            "title": "Study begins!",
+            "desc": "lorem"
+        },
+        {
+            "date": "December 2015",
+            "picsrc": "./images/about/c.png",
+            "title": "Getting the hang of it",
+            "desc": "lorem"
+        },
+        {
+            "date": "March 2016",
+            "picsrc": "./images/about/ai.png",
+            "title": "It's vectoring time!",
+            "desc": "lorem"
+        },
+        {
+            "date": "April 2016",
+            "picsrc": "./images/about/autocad.png",
+            "title": "3D",
+            "desc": "lorem"
+        },
+        {
+            "date": "June 2016",
+            "picsrc": "./images/about/java.png",
+            "title": "That was easy",
+            "desc": "lorem"
+        },
+        {
+            "date": "June 2016",
+            "picsrc": "./images/about/pr.png",
+            "title": "Videos",
+            "desc": "lorem"
+        },
+        {
+            "date": "June 2016",
+            "picsrc": "./images/about/ae.png",
+            "title": "Magic",
+            "desc": "lorem"
+        },
+        {
+            "date": "July 2016",
+            "picsrc": "./images/about/html.png",
+            "title": "Websites",
+            "desc": "lorem"
+        },
+        {
+            "date": "August 2016",
+            "picsrc": "./images/about/css.png",
+            "title": "Nice websites",
+            "desc": "lorem"
+        },
+        {
+            "date": "September 2016",
+            "picsrc": "./images/about/js.png",
+            "title": "Functional websites",
+            "desc": "lorem"
+        },
+        {
+            "date": "February 2017",
+            "picsrc": "./images/about/jquery.png",
+            "title": "Mindblown",
+            "desc": "lorem"
+        },
+        {
+            "date": "November 2016",
+            "picsrc": "./images/about/node.png",
+            "title": "Networking",
+            "desc": "lorem"
+        },
+        {
+            "date": "15. December 2016",
+            "picsrc": "./images/about/github.png",
+            "title": "Git good",
+            "desc": "lorem"
+        },
+        {
+            "date": "February 2017",
+            "picsrc": "./images/about/bootstrap.png",
+            "title": "It's that easy?",
+            "desc": "lorem"
+        },
+        {
+            "date": "March 2017",
+            "picsrc": "./images/about/grav.png",
+            "title": "First CMS...Sortof",
+            "desc": "lorem"
+        },
+        {
+            "date": "June 2017",
+            "picsrc": "./images/about/postgre.png",
+            "title": "Databases",
+            "desc": "lorem"
+        },
+        {
+            "date": "September 2017",
+            "picsrc": "./images/about/keystone.png",
+            "title": "First CMS",
+            "desc": "lorem"
+        },
+        {
+            "date": "8. October 2017",
+            "picsrc": "./images/about/black1.png",
+            "title": "1. DAN TKD WT",
+            "desc": "lorem"
+        },
+        {
+            "date": "October 2017",
+            "picsrc": "./images/about/xd.png",
+            "title": "Handy prototype",
+            "desc": "lorem"
+        },
+        {
+            "date": "November 2017",
+            "picsrc": "./images/about/cpp.png",
+            "title": "Like the first one",
+            "desc": "lorem"
+        },
+        {
+            "date": "December 2017",
+            "picsrc": "./images/about/wordpress.png",
+            "title": "Wordpress",
+            "desc": "lorem"
+        },
+        {
+            "date": "February 2018",
+            "picsrc": "./images/about/terminal.png",
+            "title": "The pain",
+            "desc": "lorem"
+        },
+        {
+            "date": "March 2018",
+            "picsrc": "./images/about/jekyll.png",
+            "title": "Github pages",
+            "desc": "lorem"
+        },
+        {
+            "date": "March 2018",
+            "picsrc": "./images/about/sass.png",
+            "title": "Let's sass it up",
+            "desc": "lorem"
+        },
+        {
+            "date": "April 2018",
+            "picsrc": "./images/about/php.png",
+            "title": "Going dynamic...Again",
+            "desc": "lorem"
+        },
+        {
+            "date": "April 2018",
+            "picsrc": "./images/about/grunt.png",
+            "title": "Minify",
+            "desc": "lorem"
+        },
+        {
+            "date": "April 2018",
+            "picsrc": "./images/about/bower.png",
+            "title": "Keep it packin'",
+            "desc": "lorem"
+        },
+        {
+            "date": "May 2018",
+            "picsrc": "./images/about/mysql.png",
+            "title": "Databases...Again?",
+            "desc": "lorem"
+        },
+        {
+            "date": "June 2018",
+            "picsrc": "./images/about/webpack.png",
+            "title": "Everyone uses it",
+            "desc": "lorem"
+        },
+        {
+            "date": "2. July 2018",
+            "picsrc": "./images/about/fei.png",
+            "title": "Study continues!",
             "desc": "lorem"
         }
     ],
-    "projects":[]
+
+    "projects":[
+    ]
 }
