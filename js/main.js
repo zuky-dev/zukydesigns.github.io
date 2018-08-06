@@ -26,11 +26,11 @@ $(document).ready(function(){
     $.getJSON('./content.json', function(data){
         /*$(data.projects).each(function(key,value){});*/
         //loading gallery
-        $(data.gallery).each(function(key,value){
+        /*$(data.gallery).each(function(key,value){
             var str = '<div class="gitem"><div id="gimg"><i id="ico" class="fa fa-'+(value.link ? 'code' : 'picture-o')+'" aria-hidden="true"></i><' + (value.link ? ('a target="_blank" href="' + value.href + '"') : ('div')) + ' class="imgishadow"></' + (value.link ? ('a') : ('div')) + '><img src="' + value.picsrc + '" alt=""></div><div id="ginfo"><span id="gtitle">' + value.title + '</span><hr><span id="gdescription">' + value.desc + '</span></div></div>';
 
             $(str).appendTo('#gallery .gallery');
-        });
+        });*/
         //loading timeline
         $(data.about).each(function(key, value){
             var str = '<li><div id="aitem"><div id="atext"><span id="atitle">'+value.title+'</span><hr><span id="adesc">'+value.desc+'</span></div><div id="aimg" style="background: url('+value.picsrc+') no-repeat;background-size: cover"></div><time id="adate">'+value.date+'</time></div></li>';
@@ -49,6 +49,7 @@ $('.menuitem').on('click', function(){
     var str = $(this).attr('href');
     $('#content').toggleClass('active');
     $('#content .conitem'+str).toggleClass('active');
+    $msnry.masonry('layout');
 });
 
 //exit button in content function
@@ -78,6 +79,29 @@ $(document).on('mousemove', '.imgishadow', function(e){
 $(document).on('mouseleave', '.imgishadow', function(e){
     $(this).parent().parent().find('#ginfo').css( 'position', 'absolute' ).hide();
 });
+
+//masonry gallery
+var $msnry = $('.m_cont');
+$(document).ready(function(){
+$msnry.masonry({
+     itemSelector: '.m_item',
+     percentPosition: true,
+     columnWidth: '.m-sizer'
+});
+});
+
+$('.m_item').on('click', function(){
+    if($(this).hasClass('active')){
+        $(this).removeClass('active');
+    }
+    else{
+        $('.m_item').removeClass('active');
+        $(this).addClass('active');
+    }
+    $msnry.masonry('layout');
+});
+
+
 
 // TODO gallery maximize image on click
 // TODO mobile ui css responsive
