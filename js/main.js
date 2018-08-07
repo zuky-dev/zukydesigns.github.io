@@ -21,21 +21,38 @@ $(document).ready(function(){
     }
 });
 
+//masonry gallery
+var $msnry = $('.m_cont');
+$(document).ready(function(){
+    $msnry.masonry({
+        itemSelector: '.m_item',
+        percentPosition: true,
+        columnWidth: '.m-sizer',
+        stagger: 0,
+        horizontalOrder: false
+    });
+});
+
+
 //loading stuff from json
 $(document).ready(function(){
     $.getJSON('./content.json', function(data){
         /*$(data.projects).each(function(key,value){});*/
         //loading gallery
-        /*$(data.gallery).each(function(key,value){
-            var str = '<div class="gitem"><div id="gimg"><i id="ico" class="fa fa-'+(value.link ? 'code' : 'picture-o')+'" aria-hidden="true"></i><' + (value.link ? ('a target="_blank" href="' + value.href + '"') : ('div')) + ' class="imgishadow"></' + (value.link ? ('a') : ('div')) + '><img src="' + value.picsrc + '" alt=""></div><div id="ginfo"><span id="gtitle">' + value.title + '</span><hr><span id="gdescription">' + value.desc + '</span></div></div>';
+        $(data.gallery).each(function(key,value){
+            var str = '<div class="m_item"><div class="m_img_cont"><div class="m_shadow"></div><img class="m_img" src="'+ value.picsrc +'" alt=""><i class="fa fa-'+(value.link ? 'code' : 'picture-o')+' m_ico" aria-hidden="true"></i></div><div class="m_text_cont"><span class="m_title">'+value.title+'</span><hr><span class="m_description">'+value.desc+'</span></div><div class="m_hov_text_cont"><span class="m_hov_text">'+value.title+'</span></div></div>';
+
 
             $(str).appendTo('#gallery .gallery');
-        });*/
+        });
         //loading timeline
         $(data.about).each(function(key, value){
             var str = '<li><div id="aitem"><div id="atext"><span id="atitle">'+value.title+'</span><hr><span id="adesc">'+value.desc+'</span></div><div id="aimg" style="background: url('+value.picsrc+') no-repeat;background-size: cover"></div><time id="adate">'+value.date+'</time></div></li>';
             $(str).prependTo('#timeline ul');
         });
+
+        $msnry.masonry('reloadItems');
+    $msnry.masonry('layout');
     });
 });
 
@@ -49,6 +66,8 @@ $('.menuitem').on('click', function(){
     var str = $(this).attr('href');
     $('#content').toggleClass('active');
     $('#content .conitem'+str).toggleClass('active');
+    $msnry.masonry('reloadItems');
+    $msnry.masonry('layout');
 });
 
 //exit button in content function
@@ -58,26 +77,10 @@ $('.exit').on('click', function(){
     history.replaceState({}, document.title, $(location).attr('pathname'));
 });
 
-//gallery animation on hover
-$(document).on('mouseenter', '.imgishadow', function(){
-    $(this).parent().addClass('active');
-});
-$(document).on('mouseleave', '.imgishadow', function(){
-    $(this).parent().removeClass('active');
-});
+//masonry click on dynamic element
+$('#container.gallery').on('click','.m_item', function(){
+   console.log($(this));
 
-//masonry gallery
-var $msnry = $('.m_cont');
-$(document).ready(function(){
-    $msnry.masonry({
-        itemSelector: '.m_item',
-        percentPosition: true,
-       columnWidth: '.m-sizer',
-       stagger: 0,
-    });
-});
-
-$('.m_item').on('click', function(){
     if($(this).hasClass('active')){
         $(this).removeClass('active');
     }
@@ -85,13 +88,11 @@ $('.m_item').on('click', function(){
         $('.m_item').removeClass('active');
         $(this).addClass('active');
     }
-    $msnry.masonry();
+    $msnry.masonry('reloadItems');
+    $msnry.masonry('layout');
 });
 
-
-
-
-// TODO masonry init when images are loaded
+// TODO masonry fix resize
 // TODO fast menu change
 // TODO mobile ui css responsive
 // TODO 404 loading
