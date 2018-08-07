@@ -49,7 +49,6 @@ $('.menuitem').on('click', function(){
     var str = $(this).attr('href');
     $('#content').toggleClass('active');
     $('#content .conitem'+str).toggleClass('active');
-    $msnry.masonry('layout');
 });
 
 //exit button in content function
@@ -67,27 +66,15 @@ $(document).on('mouseleave', '.imgishadow', function(){
     $(this).parent().removeClass('active');
 });
 
-//show text when hovering over img--bug scale-> on shadow of the image
-$(document).on('mousemove', '.imgishadow', function(e){
-    var offx = e.pageX * 2 > $(window).width() ? 6.5 : 1;
-    /*var offy = e.pageY * 2 > $(window).height() ? 11 : 1;*/
-    var x = e.pageX - 65 * offx;
-    var y = e.pageY + $('#gallery').scrollTop() - 25; /* * offy;*/
-    $(this).parent().parent().find('#ginfo').css( 'position', 'absolute' ).css( 'top', y).css( 'left', x).show();
-});
-//hide when not mousing over
-$(document).on('mouseleave', '.imgishadow', function(e){
-    $(this).parent().parent().find('#ginfo').css( 'position', 'absolute' ).hide();
-});
-
 //masonry gallery
 var $msnry = $('.m_cont');
 $(document).ready(function(){
-$msnry.masonry({
-     itemSelector: '.m_item',
-     percentPosition: true,
-     columnWidth: '.m-sizer'
-});
+    $msnry.masonry({
+        itemSelector: '.m_item',
+        percentPosition: true,
+       columnWidth: '.m-sizer',
+       stagger: 0,
+    });
 });
 
 $('.m_item').on('click', function(){
@@ -98,12 +85,14 @@ $('.m_item').on('click', function(){
         $('.m_item').removeClass('active');
         $(this).addClass('active');
     }
-    $msnry.masonry('layout');
+    $msnry.masonry();
 });
 
 
 
-// TODO gallery maximize image on click
+
+// TODO masonry init when images are loaded
+// TODO fast menu change
 // TODO mobile ui css responsive
 // TODO 404 loading
 
