@@ -1,5 +1,8 @@
+//global variables
+var $msnry = $('.m_cont');
+
 //on page load check hash for content display
-$(document).ready(function(){
+function hashLoad(){
     var hash = window.location.hash;
     //if hash is set
     if(hash !== ''){
@@ -12,36 +15,39 @@ $(document).ready(function(){
 
         //the hash is in array|else delete wrong hash from history
         if(idArray.indexOf(hash) != -1){
-            $('#profilepic').toggleClass('active');
-            $('#content').toggleClass('active');
-            $('#content .conitem'+hash).toggleClass('active');
+            //wait for json to load info
+            setTimeout(function(){
+                $('#profilepic').toggleClass('active');
+                $('#content').toggleClass('active');
+                $('#content .conitem'+hash).toggleClass('active');
+            },50);
         }else{
             history.replaceState({}, document.title, $(location).attr('pathname'));
         }
     }
-});
+}
 
-//masonry gallery
-var $msnry = $('.m_cont');
-$(document).ready(function(){
-    $msnry.masonry({
+//isotope masonry style gallery init
+function isotopeInit(){
+    $msnry.isotope({
+        layoutMode: 'packery',
         itemSelector: '.m_item',
-        percentPosition: true,
-        columnWidth: '.m-sizer',
+        packery:{
+            percentPosition: true,
+            columnWidth: '.m-sizer',
+            gutters: 0,
+        },
         stagger: 0,
-        horizontalOrder: false
     });
-});
-
+}
 
 //loading stuff from json
-$(document).ready(function(){
+function loadJson(callback,callback2){
     $.getJSON('./content.json', function(data){
         /*$(data.projects).each(function(key,value){});*/
         //loading gallery
         $(data.gallery).each(function(key,value){
             var str = '<div class="m_item"><div class="m_img_cont"><div class="m_shadow"></div><img class="m_img" src="'+ value.picsrc +'" alt=""><i class="fa fa-'+(value.link ? 'code' : 'picture-o')+' m_ico" aria-hidden="true"></i></div><div class="m_text_cont"><span class="m_title">'+value.title+'</span><hr><span class="m_description">'+value.desc+'</span></div><div class="m_hov_text_cont"><span class="m_hov_text">'+value.title+'</span></div></div>';
-
 
             $(str).appendTo('#gallery .gallery');
         });
@@ -51,9 +57,29 @@ $(document).ready(function(){
             $(str).prependTo('#timeline ul');
         });
 
-        $msnry.masonry('reloadItems');
-    $msnry.masonry('layout');
+        //add dynamic elements after they have been loaded from json;
+        setTimeout(function(){
+            callback();
+        },200);
+        setTimeout(function(){
+            callback2();
+        },100);
     });
+}
+
+function isotopeRefresh(){
+    $msnry.isotope('reloadItems');
+    $msnry.isotope();
+    $msnry.isotope();
+}
+
+//load stuff on ready
+$(document).ready(function(){
+        //no.1 inits the isotope
+        isotopeInit();
+        //no.2 loads stuff from json
+        //no.3 sets off refresh and hashload
+        loadJson(isotopeRefresh,hashLoad);
 });
 
 //profilepic on click show function
@@ -66,8 +92,6 @@ $('.menuitem').on('click', function(){
     var str = $(this).attr('href');
     $('#content').toggleClass('active');
     $('#content .conitem'+str).toggleClass('active');
-    $msnry.masonry('reloadItems');
-    $msnry.masonry('layout');
 });
 
 //exit button in content function
@@ -78,21 +102,34 @@ $('.exit').on('click', function(){
 });
 
 //masonry click on dynamic element
-$('#container.gallery').on('click','.m_item', function(){
-   console.log($(this));
-
+/*$('#container.gallery').on('click','.m_item', function(){
     if($(this).hasClass('active')){
         $(this).removeClass('active');
     }
     else{
-        $('.m_item').removeClass('active');
+        $('.m_item.active').removeClass('active');
         $(this).addClass('active');
     }
-    $msnry.masonry('reloadItems');
-    $msnry.masonry('layout');
+    $msnry.isotope();
+}); */
+
+$('#container.gallery').on('click','.m_item', function(){
+    var $stamp = $(this);
+    if($(this).hasClass('active')){
+        $(this).removeClass('active');
+        $msnry.isotope('unstamp', $stamp);
+    }
+    else{
+        var $stamp2 = $(this).parent().find('.m_item.active');
+        $msnry.isotope('unstamp', $stamp2);
+        $stamp2.removeClass('active');
+        $(this).addClass('active').css('left','0px');
+        $msnry.isotope('stamp', $stamp);
+    }
+    $msnry.isotope();
 });
 
-// TODO masonry fix resize
+
 // TODO fast menu change
 // TODO mobile ui css responsive
 // TODO 404 loading
