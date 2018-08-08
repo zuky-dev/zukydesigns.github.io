@@ -355,6 +355,12 @@ hr{
     opacity: 1;
     left: 50%
 }
+.m_item-active{
+    position: absolute;
+    left: 0;
+    z-index: 800000;
+}
+
     /*article*/
 #aitem hr{
     margin: 0 10%;
