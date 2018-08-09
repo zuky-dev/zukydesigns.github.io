@@ -540,8 +540,45 @@ hr{
     color: red;
 }
 
+/*error message*/
+.error{
+    position: absolute;
+    left: 60%;
+    top: 37%;
+    /*background: white;
+    border-radius: 50vw;
+    padding: 1.3vw;
+    box-shadow: 0 0 15px black;*/
+    color: white;
+    text-align: center;
+}
+.errortitle{
+    font-size: 5rem;
+    padding-bottom: 1vh;
+}
+.error hr{
+    margin-bottom: 1vh;
+}
+.errormessage{
+    width: 100%;
+    display: block;
+    font-size: 1.5rem;
+    padding-bottom: 1.4vh;
+}
+.errorlink{
+    background: white;
+    border-radius: 50vw;
+    display: block;
+    padding: 0.5vw;
+    width: 60%;
+    position: relative;
+    left: 20%;
+    box-shadow: 0 0 15px black;
+    font-size: 1.3rem;
+}
+
 /*mouseevents*/
-#social a:hover{
+#social a:hover, .errorlink:hover{
     background: #161616;
     box-shadow: inset 0 0 15px black;
     color: #999;
@@ -606,6 +643,10 @@ hr{
     }
 }
 
+.hidden{
+    opacity: 0;
+}
+
 /*scrollbar*/
 ::-scrollbar{
     width: 12px;  /* for vertical scrollbars */
@@ -622,4 +663,3 @@ hr{
     background: rgba(0, 0, 0, 0.5);
   }
 ::-webkit-scrollbar{width: 12px;height: 12px;}::-webkit-scrollbar-track{box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.2);margin: 2.7vh 3vw;border-radius: 50vh;background: rgba(0, 0, 0, 0.1);}::-webkit-scrollbar-thumb{border-radius: 50vh;background: rgba(0, 0, 0, 0.5);}::-moz-scrollbar{width: 12px;height: 12px;}::-moz-scrollbar-track{box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.2);margin: 2.7vh 3vw;border-radius: 50vh;background: rgba(0, 0, 0, 0.1);}::-moz-scrollbar-thumb{border-radius: 50vh;background: rgba(0, 0, 0, 0.5);}::-o-scrollbar{width: 12px;height: 12px;}::-o-scrollbar-track{box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.2);margin: 2.7vh 3vw;border-radius: 50vh;background: rgba(0, 0, 0, 0.1);}::-o-scrollbar-thumb{border-radius: 50vh;background: rgba(0, 0, 0, 0.5);}
-
