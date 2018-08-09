@@ -16,11 +16,9 @@ function hashLoad(){
         //the hash is in array|else delete wrong hash from history
         if(idArray.indexOf(hash) != -1){
             //wait for json to load info
-            setTimeout(function(){
                 $('#profilepic').toggleClass('active');
                 $('#content').toggleClass('active');
                 $('#content .conitem'+hash).toggleClass('active');
-            },50);
         }else{
             history.replaceState({}, document.title, $(location).attr('pathname'));
         }
@@ -42,14 +40,17 @@ function isotopeInit(){
 }
 
 //loading stuff from json
-function loadJson(callback,callback2){
+function loadJson(/*callback,callback2*/){
     $.getJSON('./content.json', function(data){
         /*$(data.projects).each(function(key,value){});*/
         //loading gallery
         $(data.gallery).each(function(key,value){
-            var str = '<div class="m_item"><div class="m_img_cont"><div class="m_shadow"></div><img class="m_img" src="'+ value.picsrc +'" alt=""><i class="fa fa-'+(value.link ? 'code' : 'picture-o')+' m_ico" aria-hidden="true"></i></div><div class="m_text_cont"><span class="m_title">'+value.title+'</span><hr><span class="m_description">'+value.desc+'</span></div><div class="m_hov_text_cont"><span class="m_hov_text">'+value.title+'</span></div></div>';
+            var str = '<div class="m_item m_item-new hidden"><div class="m_img_cont"><div class="m_shadow"></div><img class="m_img" src="'+ value.picsrc +'" alt=""><i class="fa fa-'+(value.link ? 'code' : 'picture-o')+' m_ico" aria-hidden="true"></i></div><div class="m_text_cont"><span class="m_title">'+value.title+'</span><hr><span class="m_description">'+value.desc+'</span></div><div class="m_hov_text_cont"><span class="m_hov_text">'+value.title+'</span></div></div>';
 
             $(str).appendTo('#gallery .gallery');
+            var $newCont = $('.m_item-new');
+            $('#gallery .gallery.m_cont').isotope('addItems', $newCont);
+            $newCont.removeClass('m_item-new');
         });
         //loading timeline
         $(data.about).each(function(key, value){
@@ -57,13 +58,13 @@ function loadJson(callback,callback2){
             $(str).prependTo('#timeline ul');
         });
 
-        //add dynamic elements after they have been loaded from json;
-        setTimeout(function(){
-            callback();
-        },200);
-        setTimeout(function(){
-            callback2();
-        },100);
+        //idk why wont work another way ... basically after all this stuff adds to html itll check user interaction and after images were all loaded shows the gallery
+        //DONT MOVE THIS CODE
+        hashLoad();
+        $msnry.imagesLoaded(function(){
+            $('.m_cont .hidden').removeClass('hidden');
+            isotopeRefresh();
+        });
     });
 }
 
@@ -79,7 +80,7 @@ $(document).ready(function(){
         isotopeInit();
         //no.2 loads stuff from json
         //no.3 sets off refresh and hashload
-        loadJson(isotopeRefresh,hashLoad);
+        loadJson();
 });
 
 //profilepic on click show function
@@ -92,7 +93,15 @@ $('.menuitem').on('click', function(){
     var str = $(this).attr('href');
     $('#content').toggleClass('active');
     $('#content .conitem'+str).toggleClass('active');
+    oneReload();
 });
+var trigger = true;
+function oneReload(){
+    if(trigger){
+        isotopeRefresh();
+        trigger = false;
+    }
+}
 
 //exit button in content function
 $('.exit').on('click', function(){
@@ -102,17 +111,6 @@ $('.exit').on('click', function(){
 });
 
 //masonry click on dynamic element
-/*$('#container.gallery').on('click','.m_item', function(){
-    if($(this).hasClass('active')){
-        $(this).removeClass('active');
-    }
-    else{
-        $('.m_item.active').removeClass('active');
-        $(this).addClass('active');
-    }
-    $msnry.isotope();
-}); */
-
 $('#container.gallery').on('click','.m_item', function(){
     var $stamp = $(this);
     if($(this).hasClass('active')){
@@ -120,6 +118,7 @@ $('#container.gallery').on('click','.m_item', function(){
         $msnry.isotope('unstamp', $stamp);
     }
     else{
+        //get previous active
         var $stamp2 = $(this).parent().find('.m_item.active');
         $msnry.isotope('unstamp', $stamp2);
         $stamp2.removeClass('active');
@@ -129,9 +128,12 @@ $('#container.gallery').on('click','.m_item', function(){
     $msnry.isotope();
 });
 
+//TODO 100% solve for json async isotope refresh
+//TODO in not make js objects and the file contents.js ... idk easier solution
 
 // TODO fast menu change
+// TODO copyright popup
 // TODO mobile ui css responsive
-// TODO 404 loading
+// TODO tidy up css + robust
 
-// TODO smart search using classes
+// TODO smart search using classes -> use isotope
