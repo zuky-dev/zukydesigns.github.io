@@ -554,7 +554,7 @@ hr{
 
 /*development message*/
 #devmsg{
-    /*display: none;*/
+    display: none;
     position: fixed;
     width: 100vw;
     font-weight: 900;

@@ -44,20 +44,19 @@ function loadJson(/*callback,callback2*/){
     $.getJSON('./content.json', function(data){
         /*$(data.projects).each(function(key,value){});*/
         //loading gallery
-        /*$(data.gallery).each(function(key,value){
+        $(data.gallery).each(function(key,value){
             var str = '<div class="m_item m_item-new hidden"><div class="m_img_cont"><div class="m_shadow"></div><img class="m_img" src="'+ value.picsrc +'" alt=""><i class="fa fa-'+(value.link ? 'code' : 'picture-o')+' m_ico" aria-hidden="true"></i></div><div class="m_text_cont"><span class="m_title">'+value.title+'</span><hr><span class="m_description">'+value.desc+'</span></div><div class="m_hov_text_cont"><span class="m_hov_text">'+value.title+'</span></div></div>';
 
             $(str).appendTo('#gallery .gallery');
             var $newCont = $('.m_item-new');
             $('#gallery .gallery.m_cont').isotope('addItems', $newCont);
             $newCont.removeClass('m_item-new');
-        });*/
+        });
         //loading timeline
-        /*
         $(data.about).each(function(key, value){
             var str = '<li><div id="aitem"><div id="atext"><span id="atitle">'+value.title+'</span><hr><span id="adesc">'+value.desc+'</span></div><div id="aimg" style="background: url('+value.picsrc+') no-repeat;background-size: cover"></div><time id="adate">'+value.date+'</time></div></li>';
             $(str).prependTo('#timeline ul');
-        });*/
+        });
 
         //idk why wont work another way ... basically after all this stuff adds to html itll check user interaction and after images were all loaded shows the gallery
         //DONT MOVE THIS CODE
@@ -134,11 +133,10 @@ $('#container.gallery').on('click','.m_item', function(){
 });
 
 //TODO 100% solve for json async isotope refresh
-//TODO in not make js objects and the file contents.js ... idk easier solution
 
 // TODO fast menu change
 // TODO copyright popup
 // TODO mobile ui css responsive
-// TODO tidy up css + robust
+// TODO tidy up css + robust, kinda for desktop
 
 // TODO smart search using classes -> use isotope
