@@ -1,0 +1,53 @@
+---GALLERY--
+
+1. image
+<!--<div class="gitem">
+    <div id="gimg">
+        <i id="ico" class="fa fa-picture-o !!OR!! fa-code" aria-hidden="true"></i>
+        <div class="imgishadow"></div>
+        <img src="!!IMGSRC!!" alt="">
+    </div>
+        <div id="ginfo">
+        <span id="gtitle">!!TITLE!!</span>
+        <hr>
+        <span id="gdescription">!!DESC!!</span>
+    </div>
+</div>
+
+
+2. link
+<div class="gitem">
+    <div id="gimg">
+        <i id="ico" class="fa fa-code" aria-hidden="true"></i>
+        <a target="_blank" href="!!HREF!!" class="imgishadow"></a>
+        <img src="!!IMGSRC!!" alt="">
+    </div>
+    <div id="ginfo">
+        <span id="gtitle">!!TITLE!!</span>
+        <hr>
+        <span id="gdescription">!!DESC!!</span>
+    </div>
+</div>
+
+---ABOUT---
+
+<li>
+    <div id="aitem">
+        <div id="atext">
+            <span id="atitle">!!TITLE</span>
+            <hr>
+            <span id="adesc">!!DESC!!</span>
+        </div>
+        <div id="aimg" style="background: url(!!URL!!) no-repeat;background-size: cover"></div>
+        <time id="adate">!!DATE!!</time>
+    </div>
+</li>
+
+---END---
+
+//this is dynamic jq
+$(document).on('event', 'element', function(){});
+
+//testing json
+//in console
+http-server -c-1
