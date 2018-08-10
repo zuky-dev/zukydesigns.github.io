@@ -93,7 +93,11 @@ $('.menuitem').on('click', function(){
     var str = $(this).attr('href');
     $('#content').toggleClass('active');
     $('#content .conitem'+str).toggleClass('active');
-    oneReload();
+    //oneReload();
+    $msnry.imagesLoaded(function(){
+        $('.m_cont .hidden').removeClass('hidden');
+        isotopeRefresh();
+    });
 });
 var trigger = true;
 function oneReload(){
