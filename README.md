@@ -1,2 +1,3 @@
 # zukydesigns.github.io
-## site under construction
+
+Currently working on a new version of the website. Please hold tight!
