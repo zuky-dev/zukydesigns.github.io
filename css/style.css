@@ -11,11 +11,3 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
-#ZD{
-    width: 30%;
-}
-@media screen and (max-width: 768px){
-    #ZD {
-        width: 40%;
-    }
-}
