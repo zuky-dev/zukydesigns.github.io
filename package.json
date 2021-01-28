@@ -24,6 +24,7 @@
     "bootstrap": "^4.5.2",
     "devicon": "^2.2.0",
     "vue": "^2.6.12",
+    "vue-cookies": "^1.7.4",
     "vue-hot-reload-api": "^2.3.4",
     "vue-page-title": "^1.2.3",
     "vue-particles": "^1.0.9",

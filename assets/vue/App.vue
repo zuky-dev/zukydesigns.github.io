@@ -1,15 +1,16 @@
 <template>
-    <main v-if="$route.path != '/' && $route.path != '/error'">
-        <vue-particles class="particles" color="#181818"></vue-particles>
-        <transition name="slide">
-            <router-view></router-view>
-        </transition>
-    </main>
-    <main v-else>
-        <vue-particles class="particles" color="#181818"></vue-particles>
-        <transition name="slide">
-            <router-view></router-view>
-        </transition>
+    <main> <!--v-if="$route.path != '/' && $route.path != '/error'"-->
+        <div id="bg">
+            <!--vue-particles class="particles" color="#181818"></vue-particles-->
+            <object id="ZD" type="image/svg+xml" data="../images/ZD.svg"></object>
+            <!--:lang="conf.lang" :menu="menu"-->
+        </div>
+
+        <!-- <transition name="slide">
+            <router-view :lang="conf.lang"></router-view>
+        </transition> -->
+
+        <heading :langs="langs" :lang="conf.lang" :menu="menu" v-on:langChange="setLang"></heading>
         <footing></footing>
     </main>
 </template>
@@ -34,11 +35,77 @@
         width: 100%;
         min-height: 100vh;
     }
-    .particles{
-        width: 100%;
-        height: 100vh
+
+    #bg{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url("../images/bg.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .particles{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh
+        }
+
+        #ZD{
+            position: relative;
+            pointer-events: none;
+
+            &::selection {
+                background: transparent;
+            }
+        }
     }
+
 </style>
 
 <script>
+import Heading from './component/Heading'
+import Footing from './component/Footing'
+
+export default {
+    components: {
+        'heading': Heading,
+        'footing': Footing
+    },
+    data() {
+        return {
+            conf: {},
+            langs: [],
+            menu: {}
+        }
+    },
+    methods: {
+        init(){
+            axios.get('https://zukydesigns.github.io/data/api/page.json')
+                .then(response => {
+                    let page  = response.data;
+                    this.langs = page.langs;
+                    this.menu = page.menu;
+
+                    this.conf = $cookies.get('conf');
+
+                    if(this.conf == null){
+                        this.conf = {
+                            "lang": 'en'
+                        }
+                        $cookies.set('conf', this.conf);
+                    }
+                })
+        },
+        setLang(lang){
+            this.conf.lang = lang;
+            $cookies.set('conf', this.conf);
+        }
+    },
+    mounted() {
+        this.init();
+    },
+}
 </script>

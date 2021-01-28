@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import VuePageTitle from 'vue-page-title'
+import VuePageTitle from 'vue-page-title';
 import VueParticles from 'vue-particles';
+import VueCookies from 'vue-cookies';
 import {routes} from './routes';
 import App from '../vue/App.vue';
 
@@ -15,7 +16,10 @@ Vue.use(VuePageTitle, {
 	router,
 	suffix: '| ZukyDesigns '
 });
+Vue.use(VueCookies);
 Vue.use(VueParticles);
+
+Vue.$cookies.config(Infinity,'','',false);
 
 new Vue({
   	el: '#app',
