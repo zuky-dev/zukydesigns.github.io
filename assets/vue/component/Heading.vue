@@ -1,21 +1,30 @@
 <template>
     <header>
-        <router-link to="/" id="logo" class="m-3">
+        <router-link to="/" id="logo" class="m-3"
+            v-if="logo"
+        >
             <img id="logoImg" src="../../images/ZD.png">
         </router-link>
-        <div id="nav" class="m-3 d-flex align-items-center">
-            <span v-for="lg in langs" :key="lg" :class="{'font-weight-bold' : lg == lang}" v-on:click="changeLang(lg)" class="lang p-2">{{ lg.toUpperCase() }}</span>
-            
-            <!-- {{ langs }}, {{ lang }}, {{ menu }} -->
 
-            <div id="menu">
+        <div id="nav" class="m-3 d-flex align-items-center">
+            <span class="lang p-2"
+                v-for="lg in langs"
+                :key="lg"
+                :class="{'font-weight-bold' : lg == lang}" 
+                v-on:click="changeLang(lg)"
+            >{{ lg.toUpperCase() }}</span>
+
+
+            <div id="menu"
+                v-if="navigation"
+            >
                 <i id="menuIcon" class="fas fa-bars p-2"></i>
-                <ul id="menuDrop">
+                <ul id="menuDropdown">
                     <li>
-                        <router-link to="/portfolio" class="menuitem px-5 py-2 mt-1">{{ menu.portfolio[lang].toUpperCase() }}</router-link>
+                        <router-link to="/portfolio" class="menuItem px-5 py-2 mt-1">{{ menu.portfolio[lang].toUpperCase() }}</router-link>
                     </li>
                     <li>
-                        <router-link to="/about" class="menuitem px-5 py-2 mt-1">{{ menu.about[lang].toUpperCase() }}</router-link>
+                        <router-link to="/about" class="menuItem px-5 py-2 mt-1">{{ menu.about[lang].toUpperCase() }}</router-link>
                     </li>
                 </ul>
             </div>
@@ -53,7 +62,7 @@
         }
 
         #menu{
-           #menuDrop {
+           #menuDropdown{
                 position: absolute;
                 text-align: center;
                 top: 85%;
@@ -68,6 +77,10 @@
                     transform: scaleY(0);
                     overflow: hidden;
                     transform-origin: top center;
+
+                    .menuItem.active{
+                        background: pink;
+                    }
                 }
             }
 
@@ -77,7 +90,7 @@
                     color: #eaeaea;
                 }
 
-                #menuDrop{
+                #menuDropdown{
                     opacity: 1;
                     transform: scaleY(1);
 
@@ -93,6 +106,8 @@
 <script>
     export default {
         props:{
+            'logo': Boolean,
+            'navigation': Boolean,
             'langs': Array,
             'lang': String,
             'menu': Object

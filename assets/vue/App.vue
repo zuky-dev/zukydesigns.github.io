@@ -2,15 +2,26 @@
     <main> <!--v-if="$route.path != '/' && $route.path != '/error'"-->
         <div id="bg">
             <!--vue-particles class="particles" color="#181818"></vue-particles-->
-            <object id="ZD" type="image/svg+xml" data="../images/ZD.svg"></object>
-            <!--:lang="conf.lang" :menu="menu"-->
+            <object id="ZD" type="image/svg+xml" data="../images/ZD.svg"
+                v-if="!isContentPage()"
+            ></object>
         </div>
 
-        <!-- <transition name="slide">
-            <router-view :lang="conf.lang"></router-view>
-        </transition> -->
+        <transition name="slide">
+            <router-view
+                :lang="conf.lang"
+                :menu="menu"
+            ></router-view>
+        </transition>
 
-        <heading :langs="langs" :lang="conf.lang" :menu="menu" v-on:langChange="setLang"></heading>
+        <heading
+            :logo="isContentPage()"
+            :navigation="isContentPage()"
+            :menu="menu"
+            :langs="langs"
+            :lang="conf.lang"
+            v-on:langChange="setLang"
+        ></heading>
         <footing></footing>
     </main>
 </template>
@@ -102,6 +113,13 @@ export default {
         setLang(lang){
             this.conf.lang = lang;
             $cookies.set('conf', this.conf);
+        },
+        isContentPage(){
+            if(this.$route.path == '/' || this.$route.path == '/error'){
+                return false;
+            }else{
+                return true;
+            }
         }
     },
     mounted() {

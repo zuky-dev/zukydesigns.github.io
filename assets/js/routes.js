@@ -8,21 +8,18 @@ export const routes = [
         path: '/',
         component: Home,
         meta: {
-            title: 'H'
         }
     },
     {
         path: '/portfolio',
         component: Portfolio,
         meta: {
-            title: 'P'
         }
     },
     {
         path: '/about',
         component: About,
         meta: {
-            title: 'A'
         }
     },
     {
