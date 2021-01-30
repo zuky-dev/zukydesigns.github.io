@@ -44,7 +44,7 @@
                 <li
                     ref="link"
                 >
-                    <router-link to="/portfolio" class="link py-3 px-5 mb-3"
+                    <router-link to="/portfolio" class="link py-3 px-5 mb-4"
                         @mouseenter.native="changeImg('portfolio')"
                         @mouseleave.native="changeImg('no')"
                     >
@@ -115,6 +115,7 @@
 
         span{
             position: relative;
+            display: block;
         }
 
         &::before{
@@ -189,9 +190,14 @@
                 border-color: #181818;
                 color: #181818;
                 transform-origin: center left;
+                transform: skew(-45deg, 0) scale(1.2);
+
+                span{
+                    transform: skew(45deg, 0);
+                }
 
                 &.second{
-                    left: -39.4%;
+                    left: -43%;
                 }
 
                 &::before{
@@ -199,7 +205,7 @@
                 }
                 &:hover{
                     color: #eaeaea;
-                    transform: scale(1.2) translateX(2.5%) translateY(-2.5%);
+                    transform: scale(1.4) translateX(2.5%) skew(-45deg, 0);
                 }
             }
         }
@@ -218,21 +224,6 @@
                 about: false,
                 menuLocation: null,
                 logoLocation: null,
-    //             lang: 'sk',
-    //             menu: {
-    //     "home": {
-    //         "sk": "Domov",
-    //         "en": "Home"
-    //     },
-    //     "portfolio": {
-    //         "sk": "Portfólio",
-    //         "en": "Portfolio"
-    //     },
-    //     "about": {
-    //         "sk": "O mne",
-    //         "en": "About me"
-    //     }
-    // }
             }
         },
         methods: {
@@ -242,7 +233,7 @@
             },
             setMenuLocation(){
                 let triangleMiddleWidth = ((window.innerHeight / 2 * 100) / window.innerWidth)
-                let linkShow = 0.92;
+                let linkShow = 1;//0.92;
                 let linkWidth = (this.$refs.link.clientWidth * linkShow * 100) / window.innerWidth;
 
                 this.menuLocation = triangleMiddleWidth - linkWidth;
@@ -253,7 +244,7 @@
 
                 if(differencePercent <= -20 && window.innerWidth >= 992){
                     let margin = 200;
-                    this.logoLocation = (margin * 100) / window.innerWidth;;
+                    this.logoLocation = (margin * 100) / window.innerWidth;
 
                 }else{
                     this.logoLocation = 0;

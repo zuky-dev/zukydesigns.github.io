@@ -43,12 +43,25 @@
         transition:  500ms all ease-in-out;
     }
     .slide-enter{
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-y: hidden;
+        height: 100vh;
         transform: translateX(100%);
         opacity: 0;
+    }
+    .slide-enter-to, .slide-leave{
+        transform: none;
+        opacity: 1;
     }
     .slide-leave-to {
         transform: translateX(-100%);
         opacity: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-y: hidden;
     }
 
     .slideReverse-transition {
@@ -57,10 +70,22 @@
     .slideReverse-enter{
         transform: translateX(-100%);
         opacity: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-y: hidden;
+    }
+    .slideReverse-enter-to, .slideReverse-leave{
+        transform: none;
+        opacity: 1;
     }
     .slideReverse-leave-to {
         transform: translateX(100%);
         opacity: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-y: hidden;
     }
 
     main{
