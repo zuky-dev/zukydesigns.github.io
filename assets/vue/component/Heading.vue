@@ -51,6 +51,7 @@
         position: fixed;
         top: 0;
         right: 0;
+        z-index: 900;
 
         .lang{
             cursor: pointer;
@@ -65,7 +66,7 @@
            #menuDropdown{
                 position: absolute;
                 text-align: center;
-                top: 85%;
+                top: 95%;
                 right: 25%;
                 opacity: 0;
                 transform: scaleY(0);
@@ -73,13 +74,24 @@
                 transform-origin: top center;
 
                 li{
+                    position: relative;
+                    z-index: 1000;
                     opacity: 0;
                     transform: scaleY(0);
                     overflow: hidden;
                     transform-origin: top center;
 
-                    .menuItem.active{
-                        background: pink;
+                    .menuItem{
+                        border: 2px solid #181818;
+
+                        &:hover{
+                            background: transparentize(#181818, .5)
+                        }
+
+                        &.active{
+                            background: #181818;
+                            color: #eaeaea;
+                        }
                     }
                 }
             }

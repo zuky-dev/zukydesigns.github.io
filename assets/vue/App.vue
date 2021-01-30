@@ -1,16 +1,26 @@
 <template>
-    <main> <!--v-if="$route.path != '/' && $route.path != '/error'"-->
-        <div id="bg">
-            <!--vue-particles class="particles" color="#181818"></vue-particles-->
-            <object id="ZD" type="image/svg+xml" data="../images/ZD.svg"
-                v-if="!isContentPage()"
-            ></object>
-        </div>
+    <main>
+        <div id="bg"></div>
 
-        <transition name="slide">
-            <router-view
+        <transition name="slide"
+            v-if="isContentPage()"
+        >
+            <router-view id="main" 
+                :class="{'container my-5 pt-5' : isContentPage()}"
                 :lang="conf.lang"
                 :menu="menu"
+                v-if="menu"
+            ></router-view>
+        </transition>
+
+        <transition name="slideReverse"
+            v-else
+        >
+            <router-view id="main" 
+                :class="{'container my-5 pt-5' : isContentPage()}"
+                :lang="conf.lang"
+                :menu="menu"
+                v-if="menu"
             ></router-view>
         </transition>
 
@@ -22,7 +32,9 @@
             :lang="conf.lang"
             v-on:langChange="setLang"
         ></heading>
-        <footing></footing>
+        <footing
+            :copyright="copyright"
+        ></footing>
     </main>
 </template>
 
@@ -31,11 +43,23 @@
         transition:  500ms all ease-in-out;
     }
     .slide-enter{
-        transform: translateY(-100%);
+        transform: translateX(100%);
         opacity: 0;
     }
     .slide-leave-to {
-        transform: translateY(100%);
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    .slideReverse-transition {
+        transition:  500ms all ease-in-out;
+    }
+    .slideReverse-enter{
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    .slideReverse-leave-to {
+        transform: translateX(100%);
         opacity: 0;
     }
 
@@ -45,9 +69,17 @@
         left: 0;
         width: 100%;
         min-height: 100vh;
+        overflow-x: hidden;
     }
 
+
+
     #bg{
+        z-index: -1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
         height: 100vh;
         display: flex;
         justify-content: center;
@@ -87,9 +119,10 @@ export default {
     },
     data() {
         return {
-            conf: {},
-            langs: [],
-            menu: {}
+            conf: undefined,
+            langs: undefined,
+            menu: undefined,
+            copyright: ""
         }
     },
     methods: {
@@ -99,6 +132,7 @@ export default {
                     let page  = response.data;
                     this.langs = page.langs;
                     this.menu = page.menu;
+                    this.copyright = page.copyright;
 
                     this.conf = $cookies.get('conf');
 

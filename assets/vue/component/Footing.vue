@@ -1,6 +1,6 @@
 <template>
     <footer id="footer" class="p-3">
-        &copy; {{ year }} ZukyDesigns | Lukáš Odler
+        &copy; {{ year }} {{ copyright }}
     </footer>
 </template>
 
@@ -14,6 +14,9 @@
 
 <script>
     export default {
+        props:{
+            copyright: String
+        },
         data(){
             return {
                 'year': new Date().getFullYear()
