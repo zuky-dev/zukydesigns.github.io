@@ -206,6 +206,10 @@
                 &:hover{
                     color: #eaeaea;
                     transform: scale(1.4) translateX(2.5%) skew(-45deg, 0);
+
+                    &::before{
+                        transform: translateX(-16%);
+                    }
                 }
             }
         }
