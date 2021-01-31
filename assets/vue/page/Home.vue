@@ -197,7 +197,7 @@
                 }
 
                 &.second{
-                    left: -43%;
+                    left: -38%;
                 }
 
                 &::before{
