@@ -10,6 +10,11 @@
 //Pace loading bar
 @import './pace.scss';
 
+@font-face {
+    font-family: 'montserrat';
+    src: url('../font/montserrat.otf');
+}
+
 body{
     width: 100%;
     min-height: 100vh;
@@ -32,6 +37,9 @@ a{
     transition: 300ms all ease-in-out;
     padding: 0;
     margin: 0;
+}
+*:not(i){
+    font-family: 'montserrat';
 }
 
 ul{
