@@ -1,15 +1,15 @@
 <template>
     <div class="col-lg-3 col-md-4 col-6 p-3">
-        <router-link :to="'/portfolio/' + item.id" class="workItem">
+        <div class="workItem">
             <img
-                :src="'https://zukydesigns.github.io' + item.heroImg"
+                :src="'https://zukydesigns.github.io' + image"
                 :style="{height: height + 'vh'}"
                 ref="image"
             >
             <div class="hover">
-                <span class="more px-4 py-2">{{ more[lang] }}</span>
+                <span class="more px-4 py-2">{{ display[lang] }}</span>
             </div>
-        </router-link>
+        </div>
     </div>
 </template>
 <style lang="scss">
@@ -68,8 +68,8 @@
     export default {
         props:{
             lang: String,
-            more: Object,
-            item: Object,
+            display: Object,
+            image: String,
         },
         data() {
             return {

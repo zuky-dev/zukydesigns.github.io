@@ -1,6 +1,7 @@
 import NotFound from '../vue/page/NotFound.vue';
 import Home from '../vue/page/Home.vue';
 import Portfolio from '../vue/page/Portfolio.vue';
+import PortfolioItem from '../vue/page/PortfolioItem.vue';
 import About from '../vue/page/About.vue';
 
 export const routes = [
@@ -13,6 +14,12 @@ export const routes = [
     {
         path: '/portfolio',
         component: Portfolio,
+        meta: {
+        }
+    },
+    {
+        path: '/portfolio/:id',
+        component: PortfolioItem,
         meta: {
         }
     },
