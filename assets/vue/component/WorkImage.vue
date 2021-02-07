@@ -1,6 +1,9 @@
 <template>
     <div class="col-lg-3 col-md-4 col-6 p-3">
-        <div class="workItem">
+        <div class="workItem"
+            :class="{active: isCurrent}"
+            @click="sendId()"
+        >
             <img
                 :src="'https://zukydesigns.github.io' + image"
                 :style="{height: height + 'vh'}"
@@ -17,6 +20,23 @@
         overflow: hidden;
         box-shadow: 0 0 .75rem rgba(0,0,0,.3);
         position: relative;
+        box-sizing: border-box;
+        border: 0px solid transparent;
+
+        &::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            width: 100%;
+            height: 100%;
+            border: 2px solid transparent
+        }
+
+        &.active::after{
+            border-color: #181818;
+        }
 
         img{
             position: relative;
@@ -70,13 +90,31 @@
             lang: String,
             display: Object,
             image: String,
+            id: Number,
+            current: Number
         },
         data() {
             return {
-                height: null
+                height: null,
+                isCurrent: false,
+            }
+        },
+        watch: {
+            current: function (val) {
+                this.checkCurrent();
             }
         },
         methods: {
+            checkCurrent(){
+                if(this.current == this.id){
+                    this.isCurrent = true;
+                }else{
+                    this.isCurrent = false
+                }
+            },
+            sendId(){
+                this.$emit('newPosition', this.id)
+            },
             setHeight(){
                 let widthV = (this.$refs.image.clientWidth * 100) / window.innerWidth
                 let proportionWH = window.innerWidth / window.innerHeight;
@@ -85,6 +123,7 @@
             }
         },
         mounted() {
+            this.checkCurrent();
             this.setHeight();
             window.addEventListener('resize', this.setHeight);
         },

@@ -4,20 +4,30 @@
             <div class="col-12 p-3">
                 <workCarousel
                     :gallery="work.gallery"
+                    :newCurrent="newPosition"
+                    v-on:galleryPosition="positionUpdate"
                 ></workCarousel>
             </div>
             <div class="col-3 d-none d-lg-block p-3 hero">
                 <img
                     :src="'https://zukydesigns.github.io' + work.heroImg"
+                    :style="{height: height == 0 ? '1px' : (height + 'vh')}"
+                    ref="image"
                 >
             </div>
             <div class="col-lg-6 col-md-8 col-12 p-3">
-                <div class="box">
+                <div class="box"
+                    :style="{'min-height': height + 'vh'}"
+                >
                     <h1 class="text-center py-2">{{work.title[lang]}}</h1>
+                    <div class="px-3 pb-3" v-html="work.about[lang]">
+                    </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-12 p-3">
-                <div class="box p-3 d-flex justify-content-center align-items-start">
+                <div class="box p-3 d-flex justify-content-center align-items-start"
+                    :style="{height: height == 0 ? 'fit-content' : (height + 'vh')}"
+                >
                     <ul class="shortInfo m-0">
                         <li classp="py-2">
                             <router-link to="/portfolio" class="py-2 button">
@@ -51,11 +61,14 @@
             </div>
             <div class="col-12 row p-0 m-0">
                 <workImage
-                    v-for="image in work.gallery"
-                    :key="image"
+                    v-for="(image, index) in work.gallery"
+                    :key="index"
+                    :id="index"
+                    :current="position"
                     :image="image"
                     :lang="lang"
                     :display="display"
+                    v-on:newPosition="positionNew"
                 ></workImage>
             </div>
         </div>
@@ -66,7 +79,6 @@
         overflow: hidden;
 
         img{
-            height: 100%;
             width: 100%;
             object-fit: cover;
             box-shadow: 0 0 .75rem rgba(0,0,0,.3);
@@ -76,9 +88,7 @@
     .box{
         background: transparentize(#eaeaea, .20);
         width: 100%;
-        height: 100%;
         box-shadow: 0 0 .75rem rgba(0,0,0,.3);
-        min-height: 5vh;
 
         .shortInfo{
             width: 100%;
@@ -150,6 +160,9 @@
                 tags: null,
                 back: null,
                 display: null,
+                position: null,
+                newPosition: null,
+                height: null,
             }
         },
         methods: {
@@ -172,13 +185,30 @@
                         }
 
                         this.$title = `${this.work.title[this.lang]}`
+                    }).finally(()=>{
+                        this.setHeight();
+                    });
+            },
+            setHeight(){
+                console.log(this.$refs.image)
+                let widthV = (this.$refs.image.clientWidth * 100) / window.innerWidth
+                let proportionWH = window.innerWidth / window.innerHeight;
 
-                        console.log(this.work.gallery);
-                    })
+                this.height = widthV * proportionWH;
+            },
+            positionUpdate(position){
+                this.position = position;
+            },
+            positionNew(position){
+                this.newPosition = position;
             }
         },
         mounted(){
             this.init();
+            window.addEventListener('resize', this.setHeight);
+        },
+        beforeDestroy(){
+            window.removeEventListener('resize', this.setHeight);
         }
     }
 </script>

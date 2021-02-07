@@ -11,7 +11,9 @@
             }"
         >
 
-        <div class="indicators">
+        <div class="indicators"
+            v-if="gallery.length > 1"
+        >
             <i class="fas fa-chevron-left p-3" @click="prevImg()"></i>
             <i class="fas fa-chevron-right p-3" @click="nextImg()"></i>
 
@@ -111,7 +113,8 @@
 <script>
     export default {
         props:{
-            gallery: Array
+            gallery: Array,
+            newCurrent: Number
         },
         data() {
             return {
@@ -119,19 +122,26 @@
                 'expanded': false
             }
         },
+        watch: {
+            newCurrent: function (val) {
+                this.setCurrent();
+            }
+        },
         methods:{
             init(){
                 if(this.gallery.lenght != 0){
                     this.current = 0;
                 }
+                this.sendCurrent();
             },
-
             nextImg(){
                 if((this.current + 1) == this.gallery.length){
                     this.current = 0;
                 }else{
                     this.current = this.current + 1;
                 }
+
+                this.sendCurrent();
             },
             prevImg(){
                 if(this.current - 1 < 0){
@@ -139,6 +149,15 @@
                 }else{
                     this.current = this.current - 1;
                 }
+
+                this.sendCurrent();
+            },
+            sendCurrent(){
+                this.$emit('galleryPosition', this.current)
+            },
+            setCurrent(){
+                this.current = this.newCurrent
+                this.sendCurrent();
             },
             expand(bool){
                 this.expanded = bool;
