@@ -2,7 +2,9 @@
     <div>
         <div class="row">
             <div class="col-12 p-3">
-                <div class="box"></div>
+                <workCarousel
+                    :gallery="work.gallery"
+                ></workCarousel>
             </div>
             <div class="col-3 d-none d-lg-block p-3 hero">
                 <img
@@ -37,7 +39,7 @@
                         <li class="py-2"
                             v-if="work.tags.length > 0"
                         >
-                            <span
+                            <span class="hash mr-1"
                                 v-for="item in work.tags"
                                 :key="item"
                             >
@@ -47,7 +49,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-12 p-3 row">
+            <div class="col-12 row p-0 m-0">
                 <workImage
                     v-for="image in work.gallery"
                     :key="image"
@@ -80,6 +82,14 @@
 
         .shortInfo{
             width: 100%;
+        }
+    }
+
+    .hash{
+        border-bottom: 1px solid transparent;
+
+        &:hover{
+            border-color: #181818;
         }
     }
 
@@ -118,11 +128,13 @@
     }
 </style>
 <script>
-import WorkImage from '../component/WorkImage';
+    import WorkImage from '../component/WorkImage';
+    import WorkCarousel from '../component/WorkCarousel';
 
     export default {
         components:{
-            'workImage': WorkImage
+            'workImage': WorkImage,
+            'workCarousel': WorkCarousel
         },
         props:{
             lang: String
@@ -160,8 +172,8 @@ import WorkImage from '../component/WorkImage';
                         }
 
                         this.$title = `${this.work.title[this.lang]}`
-                        
 
+                        console.log(this.work.gallery);
                     })
             }
         },
