@@ -87,7 +87,7 @@
 
                     .menuItem{
                         border: 2px solid #181818;
-                        background: #eaeaea;
+                        background: transparentize(#eaeaea, .20);
                         position: relative;
                         overflow: hidden;
 
